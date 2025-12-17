@@ -1,6 +1,16 @@
 [package]
-name = "newsletter"
+name = "wizard_blog_backend"
 version = "0.1.0"
 edition = "2024"
 
+[lib]
+path = "src/lib.rs"
+
+[[bin]]
+path = "src/main.rs"
+name = "wizard_blog_backend"
+
 [dependencies]
+actix-web = "4"
+reqwest = "0.12.26"
+tokio = { version = "1", features = ["full"] }
