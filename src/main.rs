@@ -1,9 +1,13 @@
+use env_logger::Env;
 use sqlx::PgPool;
 use std::net::TcpListener;
 use wizard_blog_backend::{configuration::get_configuration, startup::run};
 
 #[tokio::main]
 async fn main() -> Result<(), std::io::Error> {
+    //setup logging env_logger automatically calls set_logger() in init() which is responsible for telling rust which logger we are using
+    env_logger::Builder::from_env(Env::default().default_filter_or("info")).init();
+
     let configuration = get_configuration().expect("failed to read configuration.");
 
     let address = format!("127.0.0.1:{}", configuration.application_port);

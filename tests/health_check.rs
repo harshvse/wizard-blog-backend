@@ -1,10 +1,55 @@
-use sqlx::PgPool;
+use sqlx::{Connection, Executor, PgConnection, PgPool};
 use std::net::TcpListener;
-use wizard_blog_backend::configuration::get_configuration;
+use uuid::Uuid;
+use wizard_blog_backend::configuration::{DatabaseSettings, get_configuration};
 
 pub struct TestApp {
     address: String,
     db_pool: PgPool,
+}
+
+async fn spawn_app() -> TestApp {
+    let listener = TcpListener::bind("127.0.0.1:0").expect("failed to assign a port to the server");
+    let port = listener
+        .local_addr()
+        .expect("failed to get local addr")
+        .port();
+
+    let mut configuration = get_configuration().expect("failed to load configuration");
+
+    configuration.database.database_name = Uuid::new_v4().to_string();
+
+    let db_pool = configure_database(&configuration.database).await;
+
+    let server = wizard_blog_backend::startup::run(listener, db_pool.clone())
+        .expect("failed to create a server");
+
+    let _ = tokio::spawn(server);
+
+    let address = format!("http://127.0.0.1:{}", port);
+    TestApp { address, db_pool }
+}
+
+pub async fn configure_database(config: &DatabaseSettings) -> PgPool {
+    let mut connection = PgConnection::connect(&config.connection_string_without_db())
+        .await
+        .expect("failed to connect to db");
+
+    connection
+        .execute(format!(r#"CREATE DATABASE "{}";"#, config.database_name).as_str())
+        .await
+        .expect("failed to create new database");
+
+    let connection_pool = PgPool::connect(&config.connection_string())
+        .await
+        .expect("failed to connect to postgres");
+
+    sqlx::migrate!("./migrations")
+        .run(&connection_pool)
+        .await
+        .expect(" failed to migrate the db");
+
+    connection_pool
 }
 
 #[tokio::test]
@@ -20,28 +65,6 @@ async fn health_check_works() {
 
     assert!(response.status().is_success());
     assert_eq!(Some(0), response.content_length());
-}
-
-async fn spawn_app() -> TestApp {
-    let listener = TcpListener::bind("127.0.0.1:0").expect("failed to assign a port to the server");
-    let port = listener
-        .local_addr()
-        .expect("failed to get local addr")
-        .port();
-
-    let configuration = get_configuration().expect("failed to load configuration");
-
-    let db_pool = PgPool::connect(&configuration.database.connection_string())
-        .await
-        .expect("failed to create db pool");
-
-    let server = wizard_blog_backend::startup::run(listener, db_pool.clone())
-        .expect("failed to create a server");
-
-    let _ = tokio::spawn(server);
-
-    let address = format!("http://127.0.0.1:{}", port);
-    TestApp { address, db_pool }
 }
 
 #[tokio::test]
