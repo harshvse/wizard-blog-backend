@@ -1,7 +1,6 @@
 use sqlx::PgPool;
 use std::net::TcpListener;
-use wizard_blog_backend::configuration::get_configuration;
-use wizard_blog_backend::startup::run;
+use wizard_blog_backend::{configuration::get_configuration, startup::run};
 
 #[tokio::main]
 async fn main() -> Result<(), std::io::Error> {
