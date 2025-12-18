@@ -1,6 +1,5 @@
+use sqlx::PgPool;
 use std::net::TcpListener;
-
-use sqlx::{PgPool};
 use wizard_blog_backend::configuration::get_configuration;
 use wizard_blog_backend::startup::run;
 
