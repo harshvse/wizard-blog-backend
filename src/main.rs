@@ -1,5 +1,6 @@
 use std::net::TcpListener;
 
+use sqlx::{PgPool};
 use wizard_blog_backend::configuration::get_configuration;
 use wizard_blog_backend::startup::run;
 
@@ -11,6 +12,10 @@ async fn main() -> Result<(), std::io::Error> {
 
     let listener: TcpListener = TcpListener::bind(address)?;
 
+    let connection_pool = PgPool::connect(&configuration.database.connection_string())
+        .await
+        .expect("failed to connect to db");
+
     println!(
         "starting server on port: {}",
         listener
@@ -19,5 +24,5 @@ async fn main() -> Result<(), std::io::Error> {
             .port()
     );
 
-    run(listener)?.await
+    run(listener, connection_pool)?.await
 }
