@@ -1,11 +1,16 @@
 use std::net::TcpListener;
 
-use wizard_blog_backend::run;
+use wizard_blog_backend::configuration::get_configuration;
+use wizard_blog_backend::startup::run;
 
 #[tokio::main]
 async fn main() -> Result<(), std::io::Error> {
-    let listener: TcpListener =
-        TcpListener::bind("127.0.0.1:0").expect("failed to assign a port to the server");
+    let configuration = get_configuration().expect("failed to read configuration.");
+
+    let address = format!("127.0.0.1:{}", configuration.application_port);
+
+    let listener: TcpListener = TcpListener::bind(address)?;
+
     println!(
         "starting server on port: {}",
         listener
@@ -13,5 +18,6 @@ async fn main() -> Result<(), std::io::Error> {
             .expect("failed to get local addr")
             .port()
     );
+
     run(listener)?.await
 }
