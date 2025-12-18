@@ -1,26 +1,15 @@
 use sqlx::PgPool;
 use std::net::TcpListener;
-use tracing::subscriber::set_global_default;
-use tracing_bunyan_formatter::{BunyanFormattingLayer, JsonStorageLayer};
-use tracing_log::LogTracer;
-use tracing_subscriber::{EnvFilter, Registry, layer::SubscriberExt};
-use wizard_blog_backend::{configuration::get_configuration, startup::run};
+use wizard_blog_backend::{
+    configuration::get_configuration, startup::run, telemetry::get_subscriber,
+    telemetry::init_subscriber,
+};
 
 #[tokio::main]
 async fn main() -> Result<(), std::io::Error> {
-    // redirect all logs events to tracing
-    LogTracer::init().expect("failed to initialize log tracer");
-    let env_filter = EnvFilter::try_from_default_env().unwrap_or_else(|_| EnvFilter::new("info"));
+    let subscriber = get_subscriber("wizard-blog-backend".into(), "info".into(), std::io::stdout);
 
-    let formatting_layer =
-        BunyanFormattingLayer::new("wizard-blog-backend".into(), std::io::stdout);
-
-    let subscriber = Registry::default()
-        .with(env_filter)
-        .with(formatting_layer)
-        .with(JsonStorageLayer);
-
-    set_global_default(subscriber).expect("failed to set subscriber");
+    init_subscriber(subscriber);
 
     let configuration = get_configuration().expect("failed to read configuration.");
 
