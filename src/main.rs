@@ -1,3 +1,4 @@
+use secrecy::ExposeSecret;
 use sqlx::PgPool;
 use std::net::TcpListener;
 use wizard_blog_backend::{
@@ -17,9 +18,10 @@ async fn main() -> Result<(), std::io::Error> {
 
     let listener: TcpListener = TcpListener::bind(address)?;
 
-    let connection_pool = PgPool::connect(&configuration.database.connection_string())
-        .await
-        .expect("failed to connect to db");
+    let connection_pool =
+        PgPool::connect(&configuration.database.connection_string().expose_secret())
+            .await
+            .expect("failed to connect to db");
 
     println!(
         "starting server on port: {}",
