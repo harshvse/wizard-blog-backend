@@ -1,5 +1,4 @@
 use once_cell::sync::Lazy;
-use secrecy::ExposeSecret;
 use sqlx::{Connection, Executor, PgConnection, PgPool};
 use std::net::TcpListener;
 use uuid::Uuid;
@@ -143,7 +142,7 @@ async fn subscribe_returns_400_for_invalid_form_data() {
 }
 
 #[tokio::test]
-async fn subscribe_returns_200_when_fields_are_present_but_empty() {
+async fn subscribe_returns_400_when_fields_are_present_but_invalid() {
     let app = spawn_app().await;
     let client = reqwest::Client::new();
     let test_cases = vec![
@@ -161,9 +160,9 @@ async fn subscribe_returns_200_when_fields_are_present_but_empty() {
             .await
             .expect("failed to execute request");
         assert_eq!(
-            200,
+            400,
             response.status().as_u16(),
-            "the API did not return 200 when body was:{}.",
+            "the API did not return 400 when body was:{}.",
             description
         );
     }
