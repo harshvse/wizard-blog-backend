@@ -9,6 +9,7 @@ pub struct Settings {
     #[serde(deserialize_with = "deserialize_number_from_string")]
     pub application_port: u16,
     pub application_host: String,
+    pub email_client: EmailClientSettings,
 }
 
 #[derive(serde::Deserialize)]
@@ -20,6 +21,12 @@ pub struct DatabaseSettings {
     pub host: String,
     pub database_name: String,
     pub require_ssl: bool,
+}
+
+#[derive(serde::Deserialize)]
+pub struct EmailClientSettings {
+    pub base_url: String,
+    pub sender_email: String,
 }
 
 impl DatabaseSettings {
