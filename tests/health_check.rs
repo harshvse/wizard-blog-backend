@@ -1,9 +1,12 @@
+use fake::{Fake, Faker};
 use once_cell::sync::Lazy;
+use secrecy::Secret;
 use sqlx::{Connection, Executor, PgConnection, PgPool};
 use std::net::TcpListener;
 use uuid::Uuid;
 use wizard_blog_backend::{
     configuration::{DatabaseSettings, get_configuration},
+    email_client::EmailClient,
     telemetry::{get_subscriber, init_subscriber},
 };
 
@@ -41,7 +44,20 @@ async fn spawn_app() -> TestApp {
 
     let db_pool = configure_database(&configuration.database).await;
 
-    let server = wizard_blog_backend::startup::run(listener, db_pool.clone())
+    let sender_email = configuration
+        .email_client
+        .sender()
+        .expect("failed to get sender email");
+
+    let timeout = configuration.email_client.timeout();
+    let email_client = EmailClient::new(
+        configuration.email_client.base_url,
+        sender_email,
+        Secret::new(Faker.fake()),
+        timeout,
+    );
+
+    let server = wizard_blog_backend::startup::run(listener, db_pool.clone(), email_client)
         .expect("failed to create a server");
 
     let _ = tokio::spawn(server);

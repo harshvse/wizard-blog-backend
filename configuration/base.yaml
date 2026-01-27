@@ -5,3 +5,8 @@ database:
   username: "postgres"
   password: "password"
   database_name: "wizard_blog_backend"
+email_client:
+  base_url: "localhost"
+  sender_email: "test@gmail.com"
+  auth_token: "test_token"
+  timeout_milliseconds: 10000

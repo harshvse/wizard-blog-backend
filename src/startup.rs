@@ -3,7 +3,7 @@ use actix_web::{App, HttpServer, web};
 use sqlx::PgPool;
 use std::net::TcpListener;
 
-use crate::email_client::{self, EmailClient};
+use crate::email_client::EmailClient;
 use crate::routes::*;
 
 pub fn run(
