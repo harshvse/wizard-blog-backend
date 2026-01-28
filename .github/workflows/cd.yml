@@ -39,7 +39,7 @@ jobs:
           username: admin
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            cd /home/ubuntu/app
+            cd /home/app/app
             docker login ghcr.io -u ${{ github.actor }} -p ${{ secrets.GITHUB_TOKEN }}
             docker compose pull
             docker compose up -d
