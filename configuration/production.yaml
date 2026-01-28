@@ -1,6 +1,13 @@
-application_host: 0.0.0.0
+application_host: "0.0.0.0"
+application_port: 8000
+
 database:
+  host: "ep-icy-unit-ahcd70ji-pooler.c-3.us-east-1.aws.neon.tech"
+  port: 5432
+  database_name: "wizard-backend"
   require_ssl: true
+
 email_client:
-  base_url: "https://api.postmark.com"
-  sender_email: "harsh2015050@gndec.ac.in"
+  base_url: "https://api.postmarkapp.com"
+  sender_email: "noreply@yourdomain.com"
+  timeout_milliseconds: 10000
