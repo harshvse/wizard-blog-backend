@@ -1,11 +1,8 @@
-use fake::{Fake, Faker};
 use once_cell::sync::Lazy;
-use secrecy::Secret;
 use sqlx::{Connection, Executor, PgConnection, PgPool};
-use std::net::TcpListener;
 use uuid::Uuid;
 use wizard_blog_backend::configuration::{DatabaseSettings, get_configuration};
-use wizard_blog_backend::email_client::EmailClient;
+use wizard_blog_backend::startup::{Application, get_connection_pool};
 use wizard_blog_backend::telemetry::{get_subscriber, init_subscriber};
 
 static TRACING: Lazy<()> = Lazy::new(|| {
@@ -26,45 +23,44 @@ pub struct TestApp {
     pub db_pool: PgPool,
 }
 
+impl TestApp {
+    pub async fn post_subscriptions(&self, body: String) -> reqwest::Response {
+        reqwest::Client::new()
+            .post(&format!("{}/subscriptions", &self.address))
+            .header("Content-Type", "application/x-www-form-urlencoded")
+            .body(body)
+            .send()
+            .await
+            .expect("failed to execute request")
+    }
+}
+
 pub async fn spawn_app() -> TestApp {
     // Called once and skipped for rest of the calls
     Lazy::force(&TRACING);
 
-    let listener = TcpListener::bind("127.0.0.1:0").expect("failed to assign a port to the server");
-    let port = listener
-        .local_addr()
-        .expect("failed to get local addr")
-        .port();
+    let configuration = {
+        let mut c = get_configuration().expect("Failed to get configuration");
+        c.database.database_name = Uuid::new_v4().to_string();
+        c.application_port = 0;
+        c
+    };
+    configure_database(&configuration.database).await;
 
-    let mut configuration = get_configuration().expect("failed to load configuration");
+    let applcation = Application::build(configuration.clone())
+        .await
+        .expect("failed to build application");
 
-    configuration.database.database_name = Uuid::new_v4().to_string();
+    let address = format!("http://127.0.0.1:{}", applcation.port());
+    let _ = tokio::spawn(applcation.run_until_stopped());
 
-    let db_pool = configure_database(&configuration.database).await;
-
-    let sender_email = configuration
-        .email_client
-        .sender()
-        .expect("failed to get sender email");
-
-    let timeout = configuration.email_client.timeout();
-    let email_client = EmailClient::new(
-        configuration.email_client.base_url,
-        sender_email,
-        Secret::new(Faker.fake()),
-        timeout,
-    );
-
-    let server = wizard_blog_backend::startup::run(listener, db_pool.clone(), email_client)
-        .expect("failed to create a server");
-
-    let _ = tokio::spawn(server);
-
-    let address = format!("http://127.0.0.1:{}", port);
-    TestApp { address, db_pool }
+    TestApp {
+        address,
+        db_pool: get_connection_pool(&configuration.database),
+    }
 }
 
-pub async fn configure_database(config: &DatabaseSettings) -> PgPool {
+pub async fn configure_database(config: &DatabaseSettings) {
     let mut connection = PgConnection::connect_with(&config.without_db())
         .await
         .expect("failed to connect to db");
@@ -82,6 +78,4 @@ pub async fn configure_database(config: &DatabaseSettings) -> PgPool {
         .run(&connection_pool)
         .await
         .expect(" failed to migrate the db");
-
-    connection_pool
 }
