@@ -2,12 +2,12 @@
 running 14 tests
 test domain::subscriber_email::tests::email_missing_at_symbol_is_rejected ... ok
 test domain::subscriber_email::tests::empty_string_is_rejected ... ok
-test domain::subscriber_name::tests::a_valid_name_is_parsed_successfully ... ok
-test domain::subscriber_name::tests::a_256_grapheme_long_name_is_valid ... ok
-test domain::subscriber_name::tests::empty_string_is_rejected ... ok
 test domain::subscriber_name::tests::a_name_longer_than_256_graphemes_is_rejected ... ok
-test domain::subscriber_name::tests::names_containing_an_invalid_character_are_rejected ... ok
+test domain::subscriber_name::tests::empty_string_is_rejected ... ok
+test domain::subscriber_name::tests::a_256_grapheme_long_name_is_valid ... ok
 test domain::subscriber_name::tests::whitespace_only_names_are_rejected ... ok
+test domain::subscriber_name::tests::names_containing_an_invalid_character_are_rejected ... ok
+test domain::subscriber_name::tests::a_valid_name_is_parsed_successfully ... ok
 test domain::subscriber_email::tests::email_missing_subject_is_rejected ... ok
 test domain::subscriber_email::tests::valid_email_are_parsed_successfully ... ok
 test email_client::tests::send_email_succeeds_if_the_server_returns_200 ... ok
@@ -15,7 +15,7 @@ test email_client::tests::send_email_fails_if_the_server_returns_500 ... ok
 test email_client::tests::send_email_sends_the_expected_request ... ok
 test email_client::tests::send_email_times_out_if_the_server_takes_too_long ... ok
 
-test result: ok. 14 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.28s
+test result: ok. 14 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.22s
 
 
 running 0 tests
@@ -23,266 +23,451 @@ running 0 tests
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
 
 
-running 9 tests
-[2026-01-29T14:18:24.719Z]  WARN: test/289299 on JM-PW0C2660: there is already a transaction in progress (line=185,target=sqlx::postgres::notice)
+running 13 tests
+[2026-02-17T09:13:08.584Z]  WARN: test/235051 on JM-PW0C2660: there is already a transaction in progress (line=185,target=sqlx::postgres::notice)
     file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sqlx-postgres-0.8.6/src/connection/stream.rs
-[2026-01-29T14:18:24.721Z]  WARN: test/289299 on JM-PW0C2660: there is already a transaction in progress (line=185,target=sqlx::postgres::notice)
+[2026-02-17T09:13:08.587Z]  WARN: test/235051 on JM-PW0C2660: there is no transaction in progress (line=185,target=sqlx::postgres::notice)
     file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sqlx-postgres-0.8.6/src/connection/stream.rs
-[2026-01-29T14:18:24.721Z]  WARN: test/289299 on JM-PW0C2660: there is already a transaction in progress (line=185,target=sqlx::postgres::notice)
+[2026-02-17T09:13:08.591Z]  WARN: test/235051 on JM-PW0C2660: there is already a transaction in progress (line=185,target=sqlx::postgres::notice)
     file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sqlx-postgres-0.8.6/src/connection/stream.rs
-[2026-01-29T14:18:24.722Z]  WARN: test/289299 on JM-PW0C2660: there is no transaction in progress (line=185,target=sqlx::postgres::notice)
+[2026-02-17T09:13:08.592Z]  WARN: test/235051 on JM-PW0C2660: there is already a transaction in progress (line=185,target=sqlx::postgres::notice)
     file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sqlx-postgres-0.8.6/src/connection/stream.rs
-[2026-01-29T14:18:24.724Z]  WARN: test/289299 on JM-PW0C2660: there is no transaction in progress (line=185,target=sqlx::postgres::notice)
+[2026-02-17T09:13:08.593Z]  WARN: test/235051 on JM-PW0C2660: there is no transaction in progress (line=185,target=sqlx::postgres::notice)
     file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sqlx-postgres-0.8.6/src/connection/stream.rs
-[2026-01-29T14:18:24.724Z]  WARN: test/289299 on JM-PW0C2660: there is no transaction in progress (line=185,target=sqlx::postgres::notice)
+[2026-02-17T09:13:08.594Z]  WARN: test/235051 on JM-PW0C2660: there is already a transaction in progress (line=185,target=sqlx::postgres::notice)
     file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sqlx-postgres-0.8.6/src/connection/stream.rs
-[2026-01-29T14:18:24.725Z]  WARN: test/289299 on JM-PW0C2660: there is already a transaction in progress (line=185,target=sqlx::postgres::notice)
+[2026-02-17T09:13:08.594Z]  WARN: test/235051 on JM-PW0C2660: there is already a transaction in progress (line=185,target=sqlx::postgres::notice)
     file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sqlx-postgres-0.8.6/src/connection/stream.rs
-[2026-01-29T14:18:24.725Z]  WARN: test/289299 on JM-PW0C2660: there is already a transaction in progress (line=185,target=sqlx::postgres::notice)
+[2026-02-17T09:13:08.594Z]  WARN: test/235051 on JM-PW0C2660: there is no transaction in progress (line=185,target=sqlx::postgres::notice)
     file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sqlx-postgres-0.8.6/src/connection/stream.rs
-[2026-01-29T14:18:24.726Z]  WARN: test/289299 on JM-PW0C2660: there is already a transaction in progress (line=185,target=sqlx::postgres::notice)
+[2026-02-17T09:13:08.596Z]  WARN: test/235051 on JM-PW0C2660: there is already a transaction in progress (line=185,target=sqlx::postgres::notice)
     file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sqlx-postgres-0.8.6/src/connection/stream.rs
-[2026-01-29T14:18:24.729Z]  WARN: test/289299 on JM-PW0C2660: there is no transaction in progress (line=185,target=sqlx::postgres::notice)
+[2026-02-17T09:13:08.596Z]  WARN: test/235051 on JM-PW0C2660: there is already a transaction in progress (line=185,target=sqlx::postgres::notice)
     file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sqlx-postgres-0.8.6/src/connection/stream.rs
-[2026-01-29T14:18:24.729Z]  WARN: test/289299 on JM-PW0C2660: there is no transaction in progress (line=185,target=sqlx::postgres::notice)
+[2026-02-17T09:13:08.597Z]  WARN: test/235051 on JM-PW0C2660: there is no transaction in progress (line=185,target=sqlx::postgres::notice)
     file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sqlx-postgres-0.8.6/src/connection/stream.rs
-[2026-01-29T14:18:24.729Z]  WARN: test/289299 on JM-PW0C2660: there is no transaction in progress (line=185,target=sqlx::postgres::notice)
+[2026-02-17T09:13:08.597Z]  WARN: test/235051 on JM-PW0C2660: there is no transaction in progress (line=185,target=sqlx::postgres::notice)
     file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sqlx-postgres-0.8.6/src/connection/stream.rs
-[2026-01-29T14:18:24.735Z]  WARN: test/289299 on JM-PW0C2660: there is already a transaction in progress (line=185,target=sqlx::postgres::notice)
+[2026-02-17T09:13:08.598Z]  WARN: test/235051 on JM-PW0C2660: there is no transaction in progress (line=185,target=sqlx::postgres::notice)
     file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sqlx-postgres-0.8.6/src/connection/stream.rs
-[2026-01-29T14:18:24.735Z]  WARN: test/289299 on JM-PW0C2660: there is already a transaction in progress (line=185,target=sqlx::postgres::notice)
+[2026-02-17T09:13:08.598Z]  WARN: test/235051 on JM-PW0C2660: there is no transaction in progress (line=185,target=sqlx::postgres::notice)
     file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sqlx-postgres-0.8.6/src/connection/stream.rs
-[2026-01-29T14:18:24.737Z]  WARN: test/289299 on JM-PW0C2660: there is already a transaction in progress (line=185,target=sqlx::postgres::notice)
+[2026-02-17T09:13:08.614Z]  WARN: test/235051 on JM-PW0C2660: there is already a transaction in progress (line=185,target=sqlx::postgres::notice)
     file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sqlx-postgres-0.8.6/src/connection/stream.rs
-[2026-01-29T14:18:24.739Z]  WARN: test/289299 on JM-PW0C2660: there is no transaction in progress (line=185,target=sqlx::postgres::notice)
+[2026-02-17T09:13:08.615Z]  WARN: test/235051 on JM-PW0C2660: there is already a transaction in progress (line=185,target=sqlx::postgres::notice)
     file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sqlx-postgres-0.8.6/src/connection/stream.rs
-[2026-01-29T14:18:24.740Z]  WARN: test/289299 on JM-PW0C2660: there is no transaction in progress (line=185,target=sqlx::postgres::notice)
+[2026-02-17T09:13:08.615Z]  WARN: test/235051 on JM-PW0C2660: there is no transaction in progress (line=185,target=sqlx::postgres::notice)
     file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sqlx-postgres-0.8.6/src/connection/stream.rs
-[2026-01-29T14:18:24.741Z]  WARN: test/289299 on JM-PW0C2660: there is no transaction in progress (line=185,target=sqlx::postgres::notice)
+[2026-02-17T09:13:08.615Z]  WARN: test/235051 on JM-PW0C2660: there is already a transaction in progress (line=185,target=sqlx::postgres::notice)
     file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sqlx-postgres-0.8.6/src/connection/stream.rs
-[2026-01-29T14:18:24.797Z]  INFO: test/289299 on JM-PW0C2660: starting 12 workers (line=310,target=actix_server::builder)
+[2026-02-17T09:13:08.616Z]  WARN: test/235051 on JM-PW0C2660: there is no transaction in progress (line=185,target=sqlx::postgres::notice)
+    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sqlx-postgres-0.8.6/src/connection/stream.rs
+[2026-02-17T09:13:08.616Z]  WARN: test/235051 on JM-PW0C2660: there is no transaction in progress (line=185,target=sqlx::postgres::notice)
+    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sqlx-postgres-0.8.6/src/connection/stream.rs
+[2026-02-17T09:13:08.616Z]  INFO: test/235051 on JM-PW0C2660: starting 12 workers (line=310,target=actix_server::builder)
     file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/actix-server-2.6.0/src/builder.rs
-[2026-01-29T14:18:24.800Z]  INFO: test/289299 on JM-PW0C2660: starting 12 workers (line=310,target=actix_server::builder)
+[2026-02-17T09:13:08.617Z]  INFO: test/235051 on JM-PW0C2660: starting 12 workers (line=310,target=actix_server::builder)
     file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/actix-server-2.6.0/src/builder.rs
-[2026-01-29T14:18:24.806Z]  INFO: test/289299 on JM-PW0C2660: starting 12 workers (line=310,target=actix_server::builder)
-    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/actix-server-2.6.0/src/builder.rs
-[2026-01-29T14:18:24.809Z]  INFO: test/289299 on JM-PW0C2660: starting 12 workers (line=310,target=actix_server::builder)
-    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/actix-server-2.6.0/src/builder.rs
-[2026-01-29T14:18:24.809Z]  INFO: test/289299 on JM-PW0C2660: starting 12 workers (line=310,target=actix_server::builder)
-    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/actix-server-2.6.0/src/builder.rs
-[2026-01-29T14:18:24.810Z]  INFO: test/289299 on JM-PW0C2660: starting 12 workers (line=310,target=actix_server::builder)
-    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/actix-server-2.6.0/src/builder.rs
-[2026-01-29T14:18:24.810Z]  INFO: test/289299 on JM-PW0C2660: starting 12 workers (line=310,target=actix_server::builder)
-    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/actix-server-2.6.0/src/builder.rs
-[2026-01-29T14:18:24.812Z]  INFO: test/289299 on JM-PW0C2660: starting 12 workers (line=310,target=actix_server::builder)
-    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/actix-server-2.6.0/src/builder.rs
-[2026-01-29T14:18:24.817Z]  INFO: test/289299 on JM-PW0C2660: starting 12 workers (line=310,target=actix_server::builder)
-    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/actix-server-2.6.0/src/builder.rs
-[2026-01-29T14:18:24.832Z]  INFO: test/289299 on JM-PW0C2660: Tokio runtime found; starting in existing Tokio runtime (line=192,target=actix_server::server)
+[2026-02-17T09:13:08.618Z]  INFO: test/235051 on JM-PW0C2660: Tokio runtime found; starting in existing Tokio runtime (line=192,target=actix_server::server)
     file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/actix-server-2.6.0/src/server.rs
-[2026-01-29T14:18:24.832Z]  INFO: test/289299 on JM-PW0C2660: starting service: "actix-web-service-127.0.0.1:38213", workers: 12, listening on: 127.0.0.1:38213 (line=197,target=actix_server::server)
+[2026-02-17T09:13:08.618Z]  INFO: test/235051 on JM-PW0C2660: starting service: "actix-web-service-127.0.0.1:36451", workers: 12, listening on: 127.0.0.1:36451 (line=197,target=actix_server::server)
     file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/actix-server-2.6.0/src/server.rs
-[2026-01-29T14:18:24.842Z]  INFO: test/289299 on JM-PW0C2660: [HTTP REQUEST - START] (line=41,target=tracing_actix_web::root_span_builder)
+[2026-02-17T09:13:08.618Z]  INFO: test/235051 on JM-PW0C2660: starting 12 workers (line=310,target=actix_server::builder)
+    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/actix-server-2.6.0/src/builder.rs
+[2026-02-17T09:13:08.620Z]  WARN: test/235051 on JM-PW0C2660: there is already a transaction in progress (line=185,target=sqlx::postgres::notice)
+    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sqlx-postgres-0.8.6/src/connection/stream.rs
+[2026-02-17T09:13:08.620Z]  WARN: test/235051 on JM-PW0C2660: there is already a transaction in progress (line=185,target=sqlx::postgres::notice)
+    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sqlx-postgres-0.8.6/src/connection/stream.rs
+[2026-02-17T09:13:08.620Z]  INFO: test/235051 on JM-PW0C2660: starting 12 workers (line=310,target=actix_server::builder)
+    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/actix-server-2.6.0/src/builder.rs
+[2026-02-17T09:13:08.621Z]  INFO: test/235051 on JM-PW0C2660: starting 12 workers (line=310,target=actix_server::builder)
+    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/actix-server-2.6.0/src/builder.rs
+[2026-02-17T09:13:08.621Z]  WARN: test/235051 on JM-PW0C2660: there is no transaction in progress (line=185,target=sqlx::postgres::notice)
+    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sqlx-postgres-0.8.6/src/connection/stream.rs
+[2026-02-17T09:13:08.622Z]  WARN: test/235051 on JM-PW0C2660: there is no transaction in progress (line=185,target=sqlx::postgres::notice)
+    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sqlx-postgres-0.8.6/src/connection/stream.rs
+[2026-02-17T09:13:08.623Z]  INFO: test/235051 on JM-PW0C2660: starting 12 workers (line=310,target=actix_server::builder)
+    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/actix-server-2.6.0/src/builder.rs
+[2026-02-17T09:13:08.629Z]  INFO: test/235051 on JM-PW0C2660: starting 12 workers (line=310,target=actix_server::builder)
+    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/actix-server-2.6.0/src/builder.rs
+[2026-02-17T09:13:08.636Z]  INFO: test/235051 on JM-PW0C2660: Tokio runtime found; starting in existing Tokio runtime (line=192,target=actix_server::server)
+    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/actix-server-2.6.0/src/server.rs
+[2026-02-17T09:13:08.636Z]  INFO: test/235051 on JM-PW0C2660: starting service: "actix-web-service-127.0.0.1:34009", workers: 12, listening on: 127.0.0.1:34009 (line=197,target=actix_server::server)
+    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/actix-server-2.6.0/src/server.rs
+[2026-02-17T09:13:08.640Z]  INFO: test/235051 on JM-PW0C2660: Tokio runtime found; starting in existing Tokio runtime (line=192,target=actix_server::server)
+    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/actix-server-2.6.0/src/server.rs
+[2026-02-17T09:13:08.640Z]  INFO: test/235051 on JM-PW0C2660: Tokio runtime found; starting in existing Tokio runtime (line=192,target=actix_server::server)
+    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/actix-server-2.6.0/src/server.rs
+[2026-02-17T09:13:08.640Z]  INFO: test/235051 on JM-PW0C2660: starting service: "actix-web-service-127.0.0.1:41493", workers: 12, listening on: 127.0.0.1:41493 (line=197,target=actix_server::server)
+    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/actix-server-2.6.0/src/server.rs
+[2026-02-17T09:13:08.640Z]  INFO: test/235051 on JM-PW0C2660: starting service: "actix-web-service-127.0.0.1:37339", workers: 12, listening on: 127.0.0.1:37339 (line=197,target=actix_server::server)
+    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/actix-server-2.6.0/src/server.rs
+[2026-02-17T09:13:08.641Z]  INFO: test/235051 on JM-PW0C2660: Tokio runtime found; starting in existing Tokio runtime (line=192,target=actix_server::server)
+    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/actix-server-2.6.0/src/server.rs
+[2026-02-17T09:13:08.641Z]  INFO: test/235051 on JM-PW0C2660: starting service: "actix-web-service-127.0.0.1:45551", workers: 12, listening on: 127.0.0.1:45551 (line=197,target=actix_server::server)
+    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/actix-server-2.6.0/src/server.rs
+[2026-02-17T09:13:08.641Z]  INFO: test/235051 on JM-PW0C2660: starting 12 workers (line=310,target=actix_server::builder)
+    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/actix-server-2.6.0/src/builder.rs
+[2026-02-17T09:13:08.642Z]  INFO: test/235051 on JM-PW0C2660: starting 12 workers (line=310,target=actix_server::builder)
+    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/actix-server-2.6.0/src/builder.rs
+[2026-02-17T09:13:08.643Z]  INFO: test/235051 on JM-PW0C2660: Tokio runtime found; starting in existing Tokio runtime (line=192,target=actix_server::server)
+    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/actix-server-2.6.0/src/server.rs
+[2026-02-17T09:13:08.643Z]  INFO: test/235051 on JM-PW0C2660: starting service: "actix-web-service-127.0.0.1:43403", workers: 12, listening on: 127.0.0.1:43403 (line=197,target=actix_server::server)
+    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/actix-server-2.6.0/src/server.rs
+[2026-02-17T09:13:08.650Z]  INFO: test/235051 on JM-PW0C2660: starting 12 workers (line=310,target=actix_server::builder)
+    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/actix-server-2.6.0/src/builder.rs
+[2026-02-17T09:13:08.660Z]  INFO: test/235051 on JM-PW0C2660: starting 12 workers (line=310,target=actix_server::builder)
+    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/actix-server-2.6.0/src/builder.rs
+[2026-02-17T09:13:08.660Z]  INFO: test/235051 on JM-PW0C2660: Tokio runtime found; starting in existing Tokio runtime (line=192,target=actix_server::server)
+    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/actix-server-2.6.0/src/server.rs
+[2026-02-17T09:13:08.660Z]  INFO: test/235051 on JM-PW0C2660: starting service: "actix-web-service-127.0.0.1:44623", workers: 12, listening on: 127.0.0.1:44623 (line=197,target=actix_server::server)
+    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/actix-server-2.6.0/src/server.rs
+[2026-02-17T09:13:08.660Z]  INFO: test/235051 on JM-PW0C2660: Tokio runtime found; starting in existing Tokio runtime (line=192,target=actix_server::server)
+    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/actix-server-2.6.0/src/server.rs
+[2026-02-17T09:13:08.660Z]  INFO: test/235051 on JM-PW0C2660: starting service: "actix-web-service-127.0.0.1:36027", workers: 12, listening on: 127.0.0.1:36027 (line=197,target=actix_server::server)
+    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/actix-server-2.6.0/src/server.rs
+[2026-02-17T09:13:08.660Z]  INFO: test/235051 on JM-PW0C2660: [HTTP REQUEST - START] (line=41,target=tracing_actix_web::root_span_builder)
     file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tracing-actix-web-0.7.20/src/root_span_builder.rs
-[2026-01-29T14:18:24.843Z]  INFO: test/289299 on JM-PW0C2660: [ADDING A NEW SUBSCRIBER - START] (file=src/routes/subscriptions.rs,line=30,target=wizard_blog_backend::routes::subscriptions)
-[2026-01-29T14:18:24.843Z]  INFO: test/289299 on JM-PW0C2660: [SAVING NEW SUBSCRIBER DETAILS IN THE DATABASE - START] (file=src/routes/subscriptions.rs,line=76,target=wizard_blog_backend::routes::subscriptions)
-[2026-01-29T14:18:24.844Z]  INFO: test/289299 on JM-PW0C2660: Tokio runtime found; starting in existing Tokio runtime (line=192,target=actix_server::server)
-    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/actix-server-2.6.0/src/server.rs
-[2026-01-29T14:18:24.844Z]  INFO: test/289299 on JM-PW0C2660: starting service: "actix-web-service-127.0.0.1:40603", workers: 12, listening on: 127.0.0.1:40603 (line=197,target=actix_server::server)
-    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/actix-server-2.6.0/src/server.rs
-[2026-01-29T14:18:24.846Z]  INFO: test/289299 on JM-PW0C2660: Tokio runtime found; starting in existing Tokio runtime (line=192,target=actix_server::server)
-    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/actix-server-2.6.0/src/server.rs
-[2026-01-29T14:18:24.846Z]  INFO: test/289299 on JM-PW0C2660: starting service: "actix-web-service-127.0.0.1:41443", workers: 12, listening on: 127.0.0.1:41443 (line=197,target=actix_server::server)
-    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/actix-server-2.6.0/src/server.rs
-[2026-01-29T14:18:24.849Z]  INFO: test/289299 on JM-PW0C2660: [SAVING NEW SUBSCRIBER DETAILS IN THE DATABASE - END] (file=src/routes/subscriptions.rs,http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:38213,http.method=POST,http.route=/subscriptions,http.scheme=http,http.target=/subscriptions,http.user_agent="",line=76,otel.kind=server,otel.name="POST /subscriptions",request_id=d53cd1cd-1075-49b8-a9b1-06cca006d950,subscriber_email=harshvse@gmail.com,subscriber_name="Harsh Verma",target=wizard_blog_backend::routes::subscriptions)
-[2026-01-29T14:18:24.850Z]  INFO: test/289299 on JM-PW0C2660: [STORE CONFIRMATION TOKEN IN DATABASE - START] (file=src/routes/subscriptions.rs,line=141,target=wizard_blog_backend::routes::subscriptions)
-[2026-01-29T14:18:24.855Z]  INFO: test/289299 on JM-PW0C2660: [HTTP REQUEST - START] (line=41,target=tracing_actix_web::root_span_builder)
+[2026-02-17T09:13:08.660Z]  INFO: test/235051 on JM-PW0C2660: [HTTP REQUEST - START] (line=41,target=tracing_actix_web::root_span_builder)
     file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tracing-actix-web-0.7.20/src/root_span_builder.rs
-[2026-01-29T14:18:24.855Z]  WARN: test/289299 on JM-PW0C2660: [HTTP REQUEST - EVENT] Error encountered while processing the incoming HTTP request: Parse(Error("missing field `name`")) (exception.details="Parse(Error("missing field `name`"))",exception.message="Parse error: missing field `name`.",http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:40603,http.method=POST,http.route=/subscriptions,http.scheme=http,http.status_code=400,http.target=/subscriptions,http.user_agent="",line=256,otel.kind=server,otel.name="POST /subscriptions",otel.status_code=OK,request_id=a929419d-3fb2-441f-b0bc-8d5896e0886b,target=tracing_actix_web::middleware)
+[2026-02-17T09:13:08.660Z]  INFO: test/235051 on JM-PW0C2660: [HTTP REQUEST - START] (line=41,target=tracing_actix_web::root_span_builder)
+    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tracing-actix-web-0.7.20/src/root_span_builder.rs
+[2026-02-17T09:13:08.660Z]  INFO: test/235051 on JM-PW0C2660: [HTTP REQUEST - START] (line=41,target=tracing_actix_web::root_span_builder)
+    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tracing-actix-web-0.7.20/src/root_span_builder.rs
+[2026-02-17T09:13:08.660Z]  INFO: test/235051 on JM-PW0C2660: [HTTP REQUEST - START] (line=41,target=tracing_actix_web::root_span_builder)
+    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tracing-actix-web-0.7.20/src/root_span_builder.rs
+[2026-02-17T09:13:08.660Z]  INFO: test/235051 on JM-PW0C2660: [ADDING A NEW SUBSCRIBER - START] (file=src/routes/subscriptions.rs,line=57,target=wizard_blog_backend::routes::subscriptions)
+[2026-02-17T09:13:08.660Z]  INFO: test/235051 on JM-PW0C2660: [ADDING A NEW SUBSCRIBER - START] (file=src/routes/subscriptions.rs,line=57,target=wizard_blog_backend::routes::subscriptions)
+[2026-02-17T09:13:08.660Z]  WARN: test/235051 on JM-PW0C2660: [HTTP REQUEST - EVENT] Error encountered while processing the incoming HTTP request: Parse(Error("missing field `name`")) (exception.details="Parse(Error("missing field `name`"))",exception.message="Parse error: missing field `name`.",http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:34009,http.method=POST,http.route=/subscriptions,http.scheme=http,http.status_code=400,http.target=/subscriptions,http.user_agent="",line=256,otel.kind=server,otel.name="POST /subscriptions",otel.status_code=OK,request_id=d8daba98-5ffc-42a6-9eac-fbe85e43f328,target=tracing_actix_web::middleware)
     file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tracing-actix-web-0.7.20/src/middleware.rs
-[2026-01-29T14:18:24.856Z]  INFO: test/289299 on JM-PW0C2660: [HTTP REQUEST - END] (exception.details="Parse(Error("missing field `name`"))",exception.message="Parse error: missing field `name`.",http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:40603,http.method=POST,http.route=/subscriptions,http.scheme=http,http.status_code=400,http.target=/subscriptions,http.user_agent="",line=41,otel.kind=server,otel.name="POST /subscriptions",otel.status_code=OK,request_id=a929419d-3fb2-441f-b0bc-8d5896e0886b,target=tracing_actix_web::root_span_builder)
+[2026-02-17T09:13:08.660Z]  INFO: test/235051 on JM-PW0C2660: [ADDING A NEW SUBSCRIBER - START] (file=src/routes/subscriptions.rs,line=57,target=wizard_blog_backend::routes::subscriptions)
+[2026-02-17T09:13:08.660Z]  INFO: test/235051 on JM-PW0C2660: [ADDING A NEW SUBSCRIBER - START] (file=src/routes/subscriptions.rs,line=57,target=wizard_blog_backend::routes::subscriptions)
+[2026-02-17T09:13:08.660Z]  INFO: test/235051 on JM-PW0C2660: [HTTP REQUEST - END] (exception.details="Parse(Error("missing field `name`"))",exception.message="Parse error: missing field `name`.",http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:34009,http.method=POST,http.route=/subscriptions,http.scheme=http,http.status_code=400,http.target=/subscriptions,http.user_agent="",line=41,otel.kind=server,otel.name="POST /subscriptions",otel.status_code=OK,request_id=d8daba98-5ffc-42a6-9eac-fbe85e43f328,target=tracing_actix_web::root_span_builder)
     file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tracing-actix-web-0.7.20/src/root_span_builder.rs
-[2026-01-29T14:18:24.859Z]  INFO: test/289299 on JM-PW0C2660: Tokio runtime found; starting in existing Tokio runtime (line=192,target=actix_server::server)
-    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/actix-server-2.6.0/src/server.rs
-[2026-01-29T14:18:24.859Z]  INFO: test/289299 on JM-PW0C2660: starting service: "actix-web-service-127.0.0.1:34147", workers: 12, listening on: 127.0.0.1:34147 (line=197,target=actix_server::server)
-    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/actix-server-2.6.0/src/server.rs
-[2026-01-29T14:18:24.859Z]  INFO: test/289299 on JM-PW0C2660: [HTTP REQUEST - START] (line=41,target=tracing_actix_web::root_span_builder)
+[2026-02-17T09:13:08.660Z]  INFO: test/235051 on JM-PW0C2660: starting 12 workers (line=310,target=actix_server::builder)
+    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/actix-server-2.6.0/src/builder.rs
+[2026-02-17T09:13:08.664Z]  INFO: test/235051 on JM-PW0C2660: [SAVING NEW SUBSCRIBER DETAILS IN THE DATABASE - START] (file=src/routes/subscriptions.rs,line=94,target=wizard_blog_backend::routes::subscriptions)
+[2026-02-17T09:13:08.664Z]  INFO: test/235051 on JM-PW0C2660: [SAVING NEW SUBSCRIBER DETAILS IN THE DATABASE - START] (file=src/routes/subscriptions.rs,line=94,target=wizard_blog_backend::routes::subscriptions)
+[2026-02-17T09:13:08.664Z]  INFO: test/235051 on JM-PW0C2660: [SAVING NEW SUBSCRIBER DETAILS IN THE DATABASE - START] (file=src/routes/subscriptions.rs,line=94,target=wizard_blog_backend::routes::subscriptions)
+[2026-02-17T09:13:08.665Z]  INFO: test/235051 on JM-PW0C2660: [SAVING NEW SUBSCRIBER DETAILS IN THE DATABASE - END] (file=src/routes/subscriptions.rs,http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:45551,http.method=POST,http.route=/subscriptions,http.scheme=http,http.target=/subscriptions,http.user_agent="",line=94,otel.kind=server,otel.name="POST /subscriptions",request_id=1dfb0397-e385-4a86-ab84-4c6d04fb56a8,subscriber_email=harshvse@gmail.com,subscriber_name="Harsh Verma",target=wizard_blog_backend::routes::subscriptions)
+[2026-02-17T09:13:08.665Z]  INFO: test/235051 on JM-PW0C2660: [SAVING NEW SUBSCRIBER DETAILS IN THE DATABASE - END] (file=src/routes/subscriptions.rs,http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:41493,http.method=POST,http.route=/subscriptions,http.scheme=http,http.target=/subscriptions,http.user_agent="",line=94,otel.kind=server,otel.name="POST /subscriptions",request_id=60d38773-b822-48d4-8d3a-f459492e0280,subscriber_email=harshvse@gmail.com,subscriber_name="Harsh Verma",target=wizard_blog_backend::routes::subscriptions)
+[2026-02-17T09:13:08.665Z]  INFO: test/235051 on JM-PW0C2660: [SAVING NEW SUBSCRIBER DETAILS IN THE DATABASE - END] (file=src/routes/subscriptions.rs,http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:36451,http.method=POST,http.route=/subscriptions,http.scheme=http,http.target=/subscriptions,http.user_agent="",line=94,otel.kind=server,otel.name="POST /subscriptions",request_id=5cacb7d8-5061-49f4-a3e4-a74e75e3b400,subscriber_email=harshvse@gmail.com,subscriber_name="Harsh Verma",target=wizard_blog_backend::routes::subscriptions)
+[2026-02-17T09:13:08.665Z]  INFO: test/235051 on JM-PW0C2660: [STORE CONFIRMATION TOKEN IN DATABASE - START] (file=src/routes/subscriptions.rs,line=157,target=wizard_blog_backend::routes::subscriptions)
+[2026-02-17T09:13:08.665Z]  INFO: test/235051 on JM-PW0C2660: [STORE CONFIRMATION TOKEN IN DATABASE - START] (file=src/routes/subscriptions.rs,line=157,target=wizard_blog_backend::routes::subscriptions)
+[2026-02-17T09:13:08.665Z]  INFO: test/235051 on JM-PW0C2660: [STORE CONFIRMATION TOKEN IN DATABASE - START] (file=src/routes/subscriptions.rs,line=157,target=wizard_blog_backend::routes::subscriptions)
+[2026-02-17T09:13:08.666Z] ERROR: test/235051 on JM-PW0C2660: [STORE CONFIRMATION TOKEN IN DATABASE - EVENT] failed to execute query: Database(PgDatabaseError { severity: Error, code: "42703", message: "column \"subscription_token\" of relation \"subscription_tokens\" does not exist", detail: None, hint: None, position: Some(Original(46)), where: None, schema: None, table: None, column: None, data_type: None, constraint: None, file: Some("parse_target.c"), line: Some(1065), routine: Some("checkInsertTargets") }) (file=src/routes/subscriptions.rs,http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:36451,http.method=POST,http.route=/subscriptions,http.scheme=http,http.target=/subscriptions,http.user_agent="",line=175,otel.kind=server,otel.name="POST /subscriptions",request_id=5cacb7d8-5061-49f4-a3e4-a74e75e3b400,subscriber_email=harshvse@gmail.com,subscriber_name="Harsh Verma",target=wizard_blog_backend::routes::subscriptions)
+[2026-02-17T09:13:08.666Z]  INFO: test/235051 on JM-PW0C2660: [STORE CONFIRMATION TOKEN IN DATABASE - END] (file=src/routes/subscriptions.rs,http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:36451,http.method=POST,http.route=/subscriptions,http.scheme=http,http.target=/subscriptions,http.user_agent="",line=157,otel.kind=server,otel.name="POST /subscriptions",request_id=5cacb7d8-5061-49f4-a3e4-a74e75e3b400,subscriber_email=harshvse@gmail.com,subscriber_name="Harsh Verma",target=wizard_blog_backend::routes::subscriptions)
+[2026-02-17T09:13:08.666Z]  INFO: test/235051 on JM-PW0C2660: [ADDING A NEW SUBSCRIBER - END] (file=src/routes/subscriptions.rs,http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:36451,http.method=POST,http.route=/subscriptions,http.scheme=http,http.target=/subscriptions,http.user_agent="",line=57,otel.kind=server,otel.name="POST /subscriptions",request_id=5cacb7d8-5061-49f4-a3e4-a74e75e3b400,subscriber_email=harshvse@gmail.com,subscriber_name="Harsh Verma",target=wizard_blog_backend::routes::subscriptions)
+[2026-02-17T09:13:08.666Z] ERROR: test/235051 on JM-PW0C2660: [HTTP REQUEST - EVENT] Error encountered while processing the incoming HTTP request: Failed to store token in the database
+
+Caused by:
+	A database error was encountered while trying to store a subscription token.
+Caused by:
+	error returned from database: column "subscription_token" of relation "subscription_tokens" does not exist
+Caused by:
+	column "subscription_token" of relation "subscription_tokens" does not exist
+ (exception.message="Failed to store token in the database",http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:36451,http.method=POST,http.route=/subscriptions,http.scheme=http,http.status_code=500,http.target=/subscriptions,http.user_agent="",line=258,otel.kind=server,otel.name="POST /subscriptions",otel.status_code=ERROR,request_id=5cacb7d8-5061-49f4-a3e4-a74e75e3b400,target=tracing_actix_web::middleware)
+    exception.details: Failed to store token in the database
+    
+    Caused by:
+    	A database error was encountered while trying to store a subscription token.
+    Caused by:
+    	error returned from database: column "subscription_token" of relation "subscription_tokens" does not exist
+    Caused by:
+    	column "subscription_token" of relation "subscription_tokens" does not exist
+    --
+    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tracing-actix-web-0.7.20/src/middleware.rs
+[2026-02-17T09:13:08.666Z]  INFO: test/235051 on JM-PW0C2660: [HTTP REQUEST - END] (exception.message="Failed to store token in the database",http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:36451,http.method=POST,http.route=/subscriptions,http.scheme=http,http.status_code=500,http.target=/subscriptions,http.user_agent="",line=41,otel.kind=server,otel.name="POST /subscriptions",otel.status_code=ERROR,request_id=5cacb7d8-5061-49f4-a3e4-a74e75e3b400,target=tracing_actix_web::root_span_builder)
+    exception.details: Failed to store token in the database
+    
+    Caused by:
+    	A database error was encountered while trying to store a subscription token.
+    Caused by:
+    	error returned from database: column "subscription_token" of relation "subscription_tokens" does not exist
+    Caused by:
+    	column "subscription_token" of relation "subscription_tokens" does not exist
+    --
     file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tracing-actix-web-0.7.20/src/root_span_builder.rs
-[2026-01-29T14:18:24.859Z]  INFO: test/289299 on JM-PW0C2660: Tokio runtime found; starting in existing Tokio runtime (line=192,target=actix_server::server)
+[2026-02-17T09:13:08.667Z]  INFO: test/235051 on JM-PW0C2660: [STORE CONFIRMATION TOKEN IN DATABASE - END] (file=src/routes/subscriptions.rs,http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:41493,http.method=POST,http.route=/subscriptions,http.scheme=http,http.target=/subscriptions,http.user_agent="",line=157,otel.kind=server,otel.name="POST /subscriptions",request_id=60d38773-b822-48d4-8d3a-f459492e0280,subscriber_email=harshvse@gmail.com,subscriber_name="Harsh Verma",target=wizard_blog_backend::routes::subscriptions)
+[2026-02-17T09:13:08.667Z]  INFO: test/235051 on JM-PW0C2660: [STORE CONFIRMATION TOKEN IN DATABASE - END] (file=src/routes/subscriptions.rs,http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:45551,http.method=POST,http.route=/subscriptions,http.scheme=http,http.target=/subscriptions,http.user_agent="",line=157,otel.kind=server,otel.name="POST /subscriptions",request_id=1dfb0397-e385-4a86-ab84-4c6d04fb56a8,subscriber_email=harshvse@gmail.com,subscriber_name="Harsh Verma",target=wizard_blog_backend::routes::subscriptions)
+[2026-02-17T09:13:08.667Z]  INFO: test/235051 on JM-PW0C2660: [SAVING NEW SUBSCRIBER DETAILS IN THE DATABASE - START] (file=src/routes/subscriptions.rs,line=94,target=wizard_blog_backend::routes::subscriptions)
+[2026-02-17T09:13:08.668Z]  INFO: test/235051 on JM-PW0C2660: [SEND CONFIRMATION EMAIL AFTER SAVING THE USER IN DATABASE - START] (file=src/routes/subscriptions.rs,line=120,target=wizard_blog_backend::routes::subscriptions)
+[2026-02-17T09:13:08.668Z]  INFO: test/235051 on JM-PW0C2660: [SEND CONFIRMATION EMAIL AFTER SAVING THE USER IN DATABASE - START] (file=src/routes/subscriptions.rs,line=120,target=wizard_blog_backend::routes::subscriptions)
+[2026-02-17T09:13:08.668Z]  INFO: test/235051 on JM-PW0C2660: [SAVING NEW SUBSCRIBER DETAILS IN THE DATABASE - END] (file=src/routes/subscriptions.rs,http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:37339,http.method=POST,http.route=/subscriptions,http.scheme=http,http.target=/subscriptions,http.user_agent="",line=94,otel.kind=server,otel.name="POST /subscriptions",request_id=4e9c3155-3528-4c82-ac74-5d7df5712772,subscriber_email=harshvse@gmail.com,subscriber_name="Harsh Verma",target=wizard_blog_backend::routes::subscriptions)
+[2026-02-17T09:13:08.669Z]  INFO: test/235051 on JM-PW0C2660: [STORE CONFIRMATION TOKEN IN DATABASE - START] (file=src/routes/subscriptions.rs,line=157,target=wizard_blog_backend::routes::subscriptions)
+test subscriptions::subscribe_fails_if_there_is_a_fatal_database_error ... ok
+[2026-02-17T09:13:08.669Z]  INFO: test/235051 on JM-PW0C2660: Tokio runtime found; starting in existing Tokio runtime (line=192,target=actix_server::server)
     file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/actix-server-2.6.0/src/server.rs
-[2026-01-29T14:18:24.859Z]  INFO: test/289299 on JM-PW0C2660: Tokio runtime found; starting in existing Tokio runtime (line=192,target=actix_server::server)
+[2026-02-17T09:13:08.669Z]  INFO: test/235051 on JM-PW0C2660: starting service: "actix-web-service-127.0.0.1:41227", workers: 12, listening on: 127.0.0.1:41227 (line=197,target=actix_server::server)
     file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/actix-server-2.6.0/src/server.rs
-[2026-01-29T14:18:24.860Z]  INFO: test/289299 on JM-PW0C2660: starting service: "actix-web-service-127.0.0.1:34811", workers: 12, listening on: 127.0.0.1:34811 (line=197,target=actix_server::server)
-    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/actix-server-2.6.0/src/server.rs
-[2026-01-29T14:18:24.860Z]  INFO: test/289299 on JM-PW0C2660: [ADDING A NEW SUBSCRIBER - START] (file=src/routes/subscriptions.rs,line=30,target=wizard_blog_backend::routes::subscriptions)
-[2026-01-29T14:18:24.860Z]  INFO: test/289299 on JM-PW0C2660: starting service: "actix-web-service-127.0.0.1:34713", workers: 12, listening on: 127.0.0.1:34713 (line=197,target=actix_server::server)
-    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/actix-server-2.6.0/src/server.rs
-[2026-01-29T14:18:24.860Z]  INFO: test/289299 on JM-PW0C2660: [SAVING NEW SUBSCRIBER DETAILS IN THE DATABASE - START] (file=src/routes/subscriptions.rs,line=76,target=wizard_blog_backend::routes::subscriptions)
-[2026-01-29T14:18:24.859Z]  INFO: test/289299 on JM-PW0C2660: Tokio runtime found; starting in existing Tokio runtime (line=192,target=actix_server::server)
-    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/actix-server-2.6.0/src/server.rs
-[2026-01-29T14:18:24.860Z]  INFO: test/289299 on JM-PW0C2660: starting service: "actix-web-service-127.0.0.1:33909", workers: 12, listening on: 127.0.0.1:33909 (line=197,target=actix_server::server)
-    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/actix-server-2.6.0/src/server.rs
-[2026-01-29T14:18:24.860Z]  INFO: test/289299 on JM-PW0C2660: Tokio runtime found; starting in existing Tokio runtime (line=192,target=actix_server::server)
-    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/actix-server-2.6.0/src/server.rs
-[2026-01-29T14:18:24.861Z]  INFO: test/289299 on JM-PW0C2660: starting service: "actix-web-service-127.0.0.1:40039", workers: 12, listening on: 127.0.0.1:40039 (line=197,target=actix_server::server)
-    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/actix-server-2.6.0/src/server.rs
-[2026-01-29T14:18:24.861Z]  INFO: test/289299 on JM-PW0C2660: [STORE CONFIRMATION TOKEN IN DATABASE - END] (file=src/routes/subscriptions.rs,http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:38213,http.method=POST,http.route=/subscriptions,http.scheme=http,http.target=/subscriptions,http.user_agent="",line=141,otel.kind=server,otel.name="POST /subscriptions",request_id=d53cd1cd-1075-49b8-a9b1-06cca006d950,subscriber_email=harshvse@gmail.com,subscriber_name="Harsh Verma",target=wizard_blog_backend::routes::subscriptions)
-[2026-01-29T14:18:24.862Z]  INFO: test/289299 on JM-PW0C2660: [SEND CONFIRMATION EMAIL AFTER SAVING THE USER IN DATABASE - START] (file=src/routes/subscriptions.rs,line=104,target=wizard_blog_backend::routes::subscriptions)
-[2026-01-29T14:18:24.865Z]  INFO: test/289299 on JM-PW0C2660: [SEND CONFIRMATION EMAIL AFTER SAVING THE USER IN DATABASE - END] (file=src/routes/subscriptions.rs,http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:38213,http.method=POST,http.route=/subscriptions,http.scheme=http,http.target=/subscriptions,http.user_agent="",line=104,otel.kind=server,otel.name="POST /subscriptions",request_id=d53cd1cd-1075-49b8-a9b1-06cca006d950,subscriber_email=harshvse@gmail.com,subscriber_name="Harsh Verma",target=wizard_blog_backend::routes::subscriptions)
-[2026-01-29T14:18:24.865Z]  INFO: test/289299 on JM-PW0C2660: [ADDING A NEW SUBSCRIBER - END] (file=src/routes/subscriptions.rs,http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:38213,http.method=POST,http.route=/subscriptions,http.scheme=http,http.target=/subscriptions,http.user_agent="",line=30,otel.kind=server,otel.name="POST /subscriptions",request_id=d53cd1cd-1075-49b8-a9b1-06cca006d950,subscriber_email=harshvse@gmail.com,subscriber_name="Harsh Verma",target=wizard_blog_backend::routes::subscriptions)
-[2026-01-29T14:18:24.866Z]  INFO: test/289299 on JM-PW0C2660: [HTTP REQUEST - END] (http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:38213,http.method=POST,http.route=/subscriptions,http.scheme=http,http.status_code=200,http.target=/subscriptions,http.user_agent="",line=41,otel.kind=server,otel.name="POST /subscriptions",otel.status_code=OK,request_id=d53cd1cd-1075-49b8-a9b1-06cca006d950,target=tracing_actix_web::root_span_builder)
+[2026-02-17T09:13:08.670Z]  INFO: test/235051 on JM-PW0C2660: [SEND CONFIRMATION EMAIL AFTER SAVING THE USER IN DATABASE - END] (file=src/routes/subscriptions.rs,http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:45551,http.method=POST,http.route=/subscriptions,http.scheme=http,http.target=/subscriptions,http.user_agent="",line=120,otel.kind=server,otel.name="POST /subscriptions",request_id=1dfb0397-e385-4a86-ab84-4c6d04fb56a8,subscriber_email=harshvse@gmail.com,subscriber_name="Harsh Verma",target=wizard_blog_backend::routes::subscriptions)
+[2026-02-17T09:13:08.670Z]  INFO: test/235051 on JM-PW0C2660: [ADDING A NEW SUBSCRIBER - END] (file=src/routes/subscriptions.rs,http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:45551,http.method=POST,http.route=/subscriptions,http.scheme=http,http.target=/subscriptions,http.user_agent="",line=57,otel.kind=server,otel.name="POST /subscriptions",request_id=1dfb0397-e385-4a86-ab84-4c6d04fb56a8,subscriber_email=harshvse@gmail.com,subscriber_name="Harsh Verma",target=wizard_blog_backend::routes::subscriptions)
+[2026-02-17T09:13:08.670Z]  INFO: test/235051 on JM-PW0C2660: [HTTP REQUEST - END] (http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:45551,http.method=POST,http.route=/subscriptions,http.scheme=http,http.status_code=200,http.target=/subscriptions,http.user_agent="",line=41,otel.kind=server,otel.name="POST /subscriptions",otel.status_code=OK,request_id=1dfb0397-e385-4a86-ab84-4c6d04fb56a8,target=tracing_actix_web::root_span_builder)
     file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tracing-actix-web-0.7.20/src/root_span_builder.rs
-[2026-01-29T14:18:24.868Z]  INFO: test/289299 on JM-PW0C2660: Tokio runtime found; starting in existing Tokio runtime (line=192,target=actix_server::server)
+[2026-02-17T09:13:08.670Z]  INFO: test/235051 on JM-PW0C2660: [STORE CONFIRMATION TOKEN IN DATABASE - END] (file=src/routes/subscriptions.rs,http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:37339,http.method=POST,http.route=/subscriptions,http.scheme=http,http.target=/subscriptions,http.user_agent="",line=157,otel.kind=server,otel.name="POST /subscriptions",request_id=4e9c3155-3528-4c82-ac74-5d7df5712772,subscriber_email=harshvse@gmail.com,subscriber_name="Harsh Verma",target=wizard_blog_backend::routes::subscriptions)
+[2026-02-17T09:13:08.670Z]  INFO: test/235051 on JM-PW0C2660: [SEND CONFIRMATION EMAIL AFTER SAVING THE USER IN DATABASE - START] (file=src/routes/subscriptions.rs,line=120,target=wizard_blog_backend::routes::subscriptions)
+[2026-02-17T09:13:08.675Z]  INFO: test/235051 on JM-PW0C2660: Tokio runtime found; starting in existing Tokio runtime (line=192,target=actix_server::server)
     file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/actix-server-2.6.0/src/server.rs
-[2026-01-29T14:18:24.868Z]  INFO: test/289299 on JM-PW0C2660: starting service: "actix-web-service-127.0.0.1:44611", workers: 12, listening on: 127.0.0.1:44611 (line=197,target=actix_server::server)
+[2026-02-17T09:13:08.675Z]  INFO: test/235051 on JM-PW0C2660: starting service: "actix-web-service-127.0.0.1:43481", workers: 12, listening on: 127.0.0.1:43481 (line=197,target=actix_server::server)
     file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/actix-server-2.6.0/src/server.rs
-[2026-01-29T14:18:24.870Z]  INFO: test/289299 on JM-PW0C2660: [SAVING NEW SUBSCRIBER DETAILS IN THE DATABASE - END] (file=src/routes/subscriptions.rs,http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:41443,http.method=POST,http.route=/subscriptions,http.scheme=http,http.target=/subscriptions,http.user_agent="",line=76,otel.kind=server,otel.name="POST /subscriptions",request_id=14360f68-c35d-46eb-920f-534d25163863,subscriber_email=harshvse@gmail.com,subscriber_name="Harsh Verma",target=wizard_blog_backend::routes::subscriptions)
-[2026-01-29T14:18:24.870Z]  INFO: test/289299 on JM-PW0C2660: [STORE CONFIRMATION TOKEN IN DATABASE - START] (file=src/routes/subscriptions.rs,line=141,target=wizard_blog_backend::routes::subscriptions)
-test subscriptions::subscribe_persists_the_new_subscriber ... ok
-[2026-01-29T14:18:24.882Z]  INFO: test/289299 on JM-PW0C2660: [STORE CONFIRMATION TOKEN IN DATABASE - END] (file=src/routes/subscriptions.rs,http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:41443,http.method=POST,http.route=/subscriptions,http.scheme=http,http.target=/subscriptions,http.user_agent="",line=141,otel.kind=server,otel.name="POST /subscriptions",request_id=14360f68-c35d-46eb-920f-534d25163863,subscriber_email=harshvse@gmail.com,subscriber_name="Harsh Verma",target=wizard_blog_backend::routes::subscriptions)
-[2026-01-29T14:18:24.882Z]  INFO: test/289299 on JM-PW0C2660: [SEND CONFIRMATION EMAIL AFTER SAVING THE USER IN DATABASE - START] (file=src/routes/subscriptions.rs,line=104,target=wizard_blog_backend::routes::subscriptions)
-[2026-01-29T14:18:24.883Z]  INFO: test/289299 on JM-PW0C2660: [HTTP REQUEST - START] (line=41,target=tracing_actix_web::root_span_builder)
+[2026-02-17T09:13:08.675Z]  INFO: test/235051 on JM-PW0C2660: Tokio runtime found; starting in existing Tokio runtime (line=192,target=actix_server::server)
+    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/actix-server-2.6.0/src/server.rs
+[2026-02-17T09:13:08.675Z]  INFO: test/235051 on JM-PW0C2660: starting service: "actix-web-service-127.0.0.1:44305", workers: 12, listening on: 127.0.0.1:44305 (line=197,target=actix_server::server)
+    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/actix-server-2.6.0/src/server.rs
+[2026-02-17T09:13:08.676Z]  INFO: test/235051 on JM-PW0C2660: [HTTP REQUEST - START] (line=41,target=tracing_actix_web::root_span_builder)
     file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tracing-actix-web-0.7.20/src/root_span_builder.rs
-[2026-01-29T14:18:24.883Z]  INFO: test/289299 on JM-PW0C2660: [HTTP REQUEST - START] (line=41,target=tracing_actix_web::root_span_builder)
+[2026-02-17T09:13:08.676Z]  INFO: test/235051 on JM-PW0C2660: [HTTP REQUEST - START] (line=41,target=tracing_actix_web::root_span_builder)
     file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tracing-actix-web-0.7.20/src/root_span_builder.rs
-[2026-01-29T14:18:24.883Z]  INFO: test/289299 on JM-PW0C2660: [HTTP REQUEST - START] (line=41,target=tracing_actix_web::root_span_builder)
-    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tracing-actix-web-0.7.20/src/root_span_builder.rs
-[2026-01-29T14:18:24.884Z]  INFO: test/289299 on JM-PW0C2660: [HTTP REQUEST - START] (line=41,target=tracing_actix_web::root_span_builder)
-    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tracing-actix-web-0.7.20/src/root_span_builder.rs
-[2026-01-29T14:18:24.884Z]  INFO: test/289299 on JM-PW0C2660: [ADDING A NEW SUBSCRIBER - START] (file=src/routes/subscriptions.rs,line=30,target=wizard_blog_backend::routes::subscriptions)
-[2026-01-29T14:18:24.884Z]  INFO: test/289299 on JM-PW0C2660: [HTTP REQUEST - START] (line=41,target=tracing_actix_web::root_span_builder)
-    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tracing-actix-web-0.7.20/src/root_span_builder.rs
-[2026-01-29T14:18:24.884Z]  INFO: test/289299 on JM-PW0C2660: [ADDING A NEW SUBSCRIBER - START] (file=src/routes/subscriptions.rs,line=30,target=wizard_blog_backend::routes::subscriptions)
-[2026-01-29T14:18:24.884Z]  INFO: test/289299 on JM-PW0C2660: [ADDING A NEW SUBSCRIBER - START] (file=src/routes/subscriptions.rs,line=30,target=wizard_blog_backend::routes::subscriptions)
-[2026-01-29T14:18:24.884Z]  INFO: test/289299 on JM-PW0C2660: [SAVING NEW SUBSCRIBER DETAILS IN THE DATABASE - START] (file=src/routes/subscriptions.rs,line=76,target=wizard_blog_backend::routes::subscriptions)
-[2026-01-29T14:18:24.884Z]  INFO: test/289299 on JM-PW0C2660: [SAVING NEW SUBSCRIBER DETAILS IN THE DATABASE - START] (file=src/routes/subscriptions.rs,line=76,target=wizard_blog_backend::routes::subscriptions)
-[2026-01-29T14:18:24.884Z]  INFO: test/289299 on JM-PW0C2660: [HTTP REQUEST - START] (line=41,target=tracing_actix_web::root_span_builder)
-    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tracing-actix-web-0.7.20/src/root_span_builder.rs
-[2026-01-29T14:18:24.884Z]  INFO: test/289299 on JM-PW0C2660: [HTTP REQUEST - END] (http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:34147,http.method=GET,http.route=/health,http.scheme=http,http.status_code=200,http.target=/health,http.user_agent="",line=41,otel.kind=server,otel.name="GET /health",otel.status_code=OK,request_id=6a89396b-42be-4aaf-8568-7d7846e5b070,target=tracing_actix_web::root_span_builder)
-    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tracing-actix-web-0.7.20/src/root_span_builder.rs
-[2026-01-29T14:18:24.884Z]  INFO: test/289299 on JM-PW0C2660: [SAVING NEW SUBSCRIBER DETAILS IN THE DATABASE - START] (file=src/routes/subscriptions.rs,line=76,target=wizard_blog_backend::routes::subscriptions)
-[2026-01-29T14:18:24.884Z]  INFO: test/289299 on JM-PW0C2660: [ADDING A NEW SUBSCRIBER - START] (file=src/routes/subscriptions.rs,line=30,target=wizard_blog_backend::routes::subscriptions)
-[2026-01-29T14:18:24.885Z]  INFO: test/289299 on JM-PW0C2660: [ADDING A NEW SUBSCRIBER - END] (file=src/routes/subscriptions.rs,http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:34713,http.method=POST,http.route=/subscriptions,http.scheme=http,http.target=/subscriptions,http.user_agent="",line=30,otel.kind=server,otel.name="POST /subscriptions",request_id=57285697-9140-4cd5-93f9-827aa4684370,subscriber_email=harshvse@gmail.com,subscriber_name="",target=wizard_blog_backend::routes::subscriptions)
-[2026-01-29T14:18:24.885Z]  INFO: test/289299 on JM-PW0C2660: [HTTP REQUEST - END] (http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:34713,http.method=POST,http.route=/subscriptions,http.scheme=http,http.status_code=400,http.target=/subscriptions,http.user_agent="",line=41,otel.kind=server,otel.name="POST /subscriptions",otel.status_code=OK,request_id=57285697-9140-4cd5-93f9-827aa4684370,target=tracing_actix_web::root_span_builder)
-    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tracing-actix-web-0.7.20/src/root_span_builder.rs
-[2026-01-29T14:18:24.885Z]  WARN: test/289299 on JM-PW0C2660: [HTTP REQUEST - EVENT] Error encountered while processing the incoming HTTP request: Deserialize(Error("missing field `subscription_token`")) (http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:34811,http.method=GET,http.route=/subscriptions/confirm,http.scheme=http,http.status_code=400,http.target=/subscriptions/confirm,http.user_agent="",line=256,otel.kind=server,otel.name="GET /subscriptions/confirm",otel.status_code=OK,request_id=d98ac691-d115-4cf1-8f47-180a6714c2e5,target=tracing_actix_web::middleware)
+[2026-02-17T09:13:08.676Z]  WARN: test/235051 on JM-PW0C2660: [HTTP REQUEST - EVENT] Error encountered while processing the incoming HTTP request: Deserialize(Error("missing field `subscription_token`")) (http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:44623,http.method=GET,http.route=/subscriptions/confirm,http.scheme=http,http.status_code=400,http.target=/subscriptions/confirm,http.user_agent="",line=256,otel.kind=server,otel.name="GET /subscriptions/confirm",otel.status_code=OK,request_id=292bc3d4-f65c-410e-b0da-0dd2cc319395,target=tracing_actix_web::middleware)
     exception.details: Deserialize(Error("missing field `subscription_token`"))
     --
     exception.message: Query deserialize error: missing field `subscription_token`
     --
     file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tracing-actix-web-0.7.20/src/middleware.rs
-[2026-01-29T14:18:24.885Z]  INFO: test/289299 on JM-PW0C2660: [HTTP REQUEST - END] (http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:34811,http.method=GET,http.route=/subscriptions/confirm,http.scheme=http,http.status_code=400,http.target=/subscriptions/confirm,http.user_agent="",line=41,otel.kind=server,otel.name="GET /subscriptions/confirm",otel.status_code=OK,request_id=d98ac691-d115-4cf1-8f47-180a6714c2e5,target=tracing_actix_web::root_span_builder)
+[2026-02-17T09:13:08.675Z]  INFO: test/235051 on JM-PW0C2660: Tokio runtime found; starting in existing Tokio runtime (line=192,target=actix_server::server)
+    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/actix-server-2.6.0/src/server.rs
+[2026-02-17T09:13:08.676Z]  INFO: test/235051 on JM-PW0C2660: starting service: "actix-web-service-127.0.0.1:37587", workers: 12, listening on: 127.0.0.1:37587 (line=197,target=actix_server::server)
+    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/actix-server-2.6.0/src/server.rs
+[2026-02-17T09:13:08.676Z]  INFO: test/235051 on JM-PW0C2660: [HTTP REQUEST - END] (http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:44623,http.method=GET,http.route=/subscriptions/confirm,http.scheme=http,http.status_code=400,http.target=/subscriptions/confirm,http.user_agent="",line=41,otel.kind=server,otel.name="GET /subscriptions/confirm",otel.status_code=OK,request_id=292bc3d4-f65c-410e-b0da-0dd2cc319395,target=tracing_actix_web::root_span_builder)
     exception.details: Deserialize(Error("missing field `subscription_token`"))
     --
     exception.message: Query deserialize error: missing field `subscription_token`
     --
     file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tracing-actix-web-0.7.20/src/root_span_builder.rs
-[2026-01-29T14:18:24.886Z]  INFO: test/289299 on JM-PW0C2660: [SEND CONFIRMATION EMAIL AFTER SAVING THE USER IN DATABASE - END] (file=src/routes/subscriptions.rs,http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:41443,http.method=POST,http.route=/subscriptions,http.scheme=http,http.target=/subscriptions,http.user_agent="",line=104,otel.kind=server,otel.name="POST /subscriptions",request_id=14360f68-c35d-46eb-920f-534d25163863,subscriber_email=harshvse@gmail.com,subscriber_name="Harsh Verma",target=wizard_blog_backend::routes::subscriptions)
-[2026-01-29T14:18:24.886Z]  INFO: test/289299 on JM-PW0C2660: [ADDING A NEW SUBSCRIBER - END] (file=src/routes/subscriptions.rs,http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:41443,http.method=POST,http.route=/subscriptions,http.scheme=http,http.target=/subscriptions,http.user_agent="",line=30,otel.kind=server,otel.name="POST /subscriptions",request_id=14360f68-c35d-46eb-920f-534d25163863,subscriber_email=harshvse@gmail.com,subscriber_name="Harsh Verma",target=wizard_blog_backend::routes::subscriptions)
-[2026-01-29T14:18:24.886Z]  INFO: test/289299 on JM-PW0C2660: [HTTP REQUEST - END] (http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:41443,http.method=POST,http.route=/subscriptions,http.scheme=http,http.status_code=200,http.target=/subscriptions,http.user_agent="",line=41,otel.kind=server,otel.name="POST /subscriptions",otel.status_code=OK,request_id=14360f68-c35d-46eb-920f-534d25163863,target=tracing_actix_web::root_span_builder)
+[2026-02-17T09:13:08.676Z]  INFO: test/235051 on JM-PW0C2660: [ADDING A NEW SUBSCRIBER - START] (file=src/routes/subscriptions.rs,line=57,target=wizard_blog_backend::routes::subscriptions)
+[2026-02-17T09:13:08.676Z]  INFO: test/235051 on JM-PW0C2660: [ADDING A NEW SUBSCRIBER - END] (file=src/routes/subscriptions.rs,http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:36027,http.method=POST,http.route=/subscriptions,http.scheme=http,http.target=/subscriptions,http.user_agent="",line=57,otel.kind=server,otel.name="POST /subscriptions",request_id=3aa6abb1-3851-477f-8275-43444ef21503,subscriber_email=harshvse@gmail.com,subscriber_name="",target=wizard_blog_backend::routes::subscriptions)
+[2026-02-17T09:13:08.676Z]  WARN: test/235051 on JM-PW0C2660: [HTTP REQUEST - EVENT] Error encountered while processing the incoming HTTP request:  is not a valid name.
+
+ (exception.message=" is not a valid name.",http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:36027,http.method=POST,http.route=/subscriptions,http.scheme=http,http.status_code=400,http.target=/subscriptions,http.user_agent="",line=256,otel.kind=server,otel.name="POST /subscriptions",otel.status_code=OK,request_id=3aa6abb1-3851-477f-8275-43444ef21503,target=tracing_actix_web::middleware)
+    exception.details:  is not a valid name.
+    
+    --
+    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tracing-actix-web-0.7.20/src/middleware.rs
+[2026-02-17T09:13:08.676Z]  INFO: test/235051 on JM-PW0C2660: [HTTP REQUEST - START] (line=41,target=tracing_actix_web::root_span_builder)
     file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tracing-actix-web-0.7.20/src/root_span_builder.rs
-test health_check::health_check_works ... ok
+[2026-02-17T09:13:08.676Z]  INFO: test/235051 on JM-PW0C2660: [HTTP REQUEST - END] (exception.message=" is not a valid name.",http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:36027,http.method=POST,http.route=/subscriptions,http.scheme=http,http.status_code=400,http.target=/subscriptions,http.user_agent="",line=41,otel.kind=server,otel.name="POST /subscriptions",otel.status_code=OK,request_id=3aa6abb1-3851-477f-8275-43444ef21503,target=tracing_actix_web::root_span_builder)
+    exception.details:  is not a valid name.
+    
+    --
+    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tracing-actix-web-0.7.20/src/root_span_builder.rs
+[2026-02-17T09:13:08.676Z]  WARN: test/235051 on JM-PW0C2660: [HTTP REQUEST - EVENT] Error encountered while processing the incoming HTTP request: Deserialize(Error("missing field `title`", line: 1, column: 92)) (http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:43403,http.method=POST,http.route=/newsletters,http.scheme=http,http.status_code=400,http.target=/newsletters,http.user_agent="",line=256,otel.kind=server,otel.name="POST /newsletters",otel.status_code=OK,request_id=a10bad65-301d-4f26-ba9b-08ab06e43ad7,target=tracing_actix_web::middleware)
+    exception.details: Deserialize(Error("missing field `title`", line: 1, column: 92))
+    --
+    exception.message: Json deserialize error: missing field `title` at line 1 column 92
+    --
+    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tracing-actix-web-0.7.20/src/middleware.rs
+[2026-02-17T09:13:08.676Z]  INFO: test/235051 on JM-PW0C2660: [SEND CONFIRMATION EMAIL AFTER SAVING THE USER IN DATABASE - END] (file=src/routes/subscriptions.rs,http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:37339,http.method=POST,http.route=/subscriptions,http.scheme=http,http.target=/subscriptions,http.user_agent="",line=120,otel.kind=server,otel.name="POST /subscriptions",request_id=4e9c3155-3528-4c82-ac74-5d7df5712772,subscriber_email=harshvse@gmail.com,subscriber_name="Harsh Verma",target=wizard_blog_backend::routes::subscriptions)
+[2026-02-17T09:13:08.677Z]  INFO: test/235051 on JM-PW0C2660: [HTTP REQUEST - END] (http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:43403,http.method=POST,http.route=/newsletters,http.scheme=http,http.status_code=400,http.target=/newsletters,http.user_agent="",line=41,otel.kind=server,otel.name="POST /newsletters",otel.status_code=OK,request_id=a10bad65-301d-4f26-ba9b-08ab06e43ad7,target=tracing_actix_web::root_span_builder)
+    exception.details: Deserialize(Error("missing field `title`", line: 1, column: 92))
+    --
+    exception.message: Json deserialize error: missing field `title` at line 1 column 92
+    --
+    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tracing-actix-web-0.7.20/src/root_span_builder.rs
+[2026-02-17T09:13:08.677Z]  INFO: test/235051 on JM-PW0C2660: [ADDING A NEW SUBSCRIBER - END] (file=src/routes/subscriptions.rs,http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:37339,http.method=POST,http.route=/subscriptions,http.scheme=http,http.target=/subscriptions,http.user_agent="",line=57,otel.kind=server,otel.name="POST /subscriptions",request_id=4e9c3155-3528-4c82-ac74-5d7df5712772,subscriber_email=harshvse@gmail.com,subscriber_name="Harsh Verma",target=wizard_blog_backend::routes::subscriptions)
+[2026-02-17T09:13:08.677Z]  INFO: test/235051 on JM-PW0C2660: [SEND CONFIRMATION EMAIL AFTER SAVING THE USER IN DATABASE - END] (file=src/routes/subscriptions.rs,http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:41493,http.method=POST,http.route=/subscriptions,http.scheme=http,http.target=/subscriptions,http.user_agent="",line=120,otel.kind=server,otel.name="POST /subscriptions",request_id=60d38773-b822-48d4-8d3a-f459492e0280,subscriber_email=harshvse@gmail.com,subscriber_name="Harsh Verma",target=wizard_blog_backend::routes::subscriptions)
+[2026-02-17T09:13:08.677Z]  INFO: test/235051 on JM-PW0C2660: [HTTP REQUEST - END] (http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:37339,http.method=POST,http.route=/subscriptions,http.scheme=http,http.status_code=200,http.target=/subscriptions,http.user_agent="",line=41,otel.kind=server,otel.name="POST /subscriptions",otel.status_code=OK,request_id=4e9c3155-3528-4c82-ac74-5d7df5712772,target=tracing_actix_web::root_span_builder)
+    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tracing-actix-web-0.7.20/src/root_span_builder.rs
+[2026-02-17T09:13:08.677Z]  INFO: test/235051 on JM-PW0C2660: [ADDING A NEW SUBSCRIBER - END] (file=src/routes/subscriptions.rs,http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:41493,http.method=POST,http.route=/subscriptions,http.scheme=http,http.target=/subscriptions,http.user_agent="",line=57,otel.kind=server,otel.name="POST /subscriptions",request_id=60d38773-b822-48d4-8d3a-f459492e0280,subscriber_email=harshvse@gmail.com,subscriber_name="Harsh Verma",target=wizard_blog_backend::routes::subscriptions)
+[2026-02-17T09:13:08.677Z]  INFO: test/235051 on JM-PW0C2660: [HTTP REQUEST - END] (http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:41493,http.method=POST,http.route=/subscriptions,http.scheme=http,http.status_code=200,http.target=/subscriptions,http.user_agent="",line=41,otel.kind=server,otel.name="POST /subscriptions",otel.status_code=OK,request_id=60d38773-b822-48d4-8d3a-f459492e0280,target=tracing_actix_web::root_span_builder)
+    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tracing-actix-web-0.7.20/src/root_span_builder.rs
 test subscriptions_confirm::confirmations_without_token_are_rejected_with_a_400 ... ok
-[2026-01-29T14:18:24.898Z]  INFO: test/289299 on JM-PW0C2660: [SAVING NEW SUBSCRIBER DETAILS IN THE DATABASE - END] (file=src/routes/subscriptions.rs,http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:44611,http.method=POST,http.route=/subscriptions,http.scheme=http,http.target=/subscriptions,http.user_agent="",line=76,otel.kind=server,otel.name="POST /subscriptions",request_id=17ceed45-dc2c-4ccc-abbf-7f24055fc309,subscriber_email=harshvse@gmail.com,subscriber_name="Harsh Verma",target=wizard_blog_backend::routes::subscriptions)
-[2026-01-29T14:18:24.898Z]  INFO: test/289299 on JM-PW0C2660: [STORE CONFIRMATION TOKEN IN DATABASE - START] (file=src/routes/subscriptions.rs,line=141,target=wizard_blog_backend::routes::subscriptions)
-[2026-01-29T14:18:24.900Z]  INFO: test/289299 on JM-PW0C2660: [SAVING NEW SUBSCRIBER DETAILS IN THE DATABASE - END] (file=src/routes/subscriptions.rs,http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:33909,http.method=POST,http.route=/subscriptions,http.scheme=http,http.target=/subscriptions,http.user_agent="",line=76,otel.kind=server,otel.name="POST /subscriptions",request_id=0c2b7fb6-6e7a-482b-b202-e3a770aa760f,subscriber_email=harshvse@gmail.com,subscriber_name="Harsh Verma",target=wizard_blog_backend::routes::subscriptions)
-[2026-01-29T14:18:24.900Z]  INFO: test/289299 on JM-PW0C2660: [STORE CONFIRMATION TOKEN IN DATABASE - START] (file=src/routes/subscriptions.rs,line=141,target=wizard_blog_backend::routes::subscriptions)
-[2026-01-29T14:18:24.901Z]  INFO: test/289299 on JM-PW0C2660: [SAVING NEW SUBSCRIBER DETAILS IN THE DATABASE - END] (file=src/routes/subscriptions.rs,http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:40039,http.method=POST,http.route=/subscriptions,http.scheme=http,http.target=/subscriptions,http.user_agent="",line=76,otel.kind=server,otel.name="POST /subscriptions",request_id=a5c87b18-6110-485c-b4d3-dc693582255b,subscriber_email=harshvse@gmail.com,subscriber_name="Harsh Verma",target=wizard_blog_backend::routes::subscriptions)
-[2026-01-29T14:18:24.901Z]  INFO: test/289299 on JM-PW0C2660: [STORE CONFIRMATION TOKEN IN DATABASE - START] (file=src/routes/subscriptions.rs,line=141,target=wizard_blog_backend::routes::subscriptions)
-[2026-01-29T14:18:24.906Z]  INFO: test/289299 on JM-PW0C2660: [HTTP REQUEST - START] (line=41,target=tracing_actix_web::root_span_builder)
-    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tracing-actix-web-0.7.20/src/root_span_builder.rs
-[2026-01-29T14:18:24.906Z]  WARN: test/289299 on JM-PW0C2660: [HTTP REQUEST - EVENT] Error encountered while processing the incoming HTTP request: Parse(Error("missing field `email`")) (exception.details="Parse(Error("missing field `email`"))",exception.message="Parse error: missing field `email`.",http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:40603,http.method=POST,http.route=/subscriptions,http.scheme=http,http.status_code=400,http.target=/subscriptions,http.user_agent="",line=256,otel.kind=server,otel.name="POST /subscriptions",otel.status_code=OK,request_id=718d6528-974d-4e80-9563-751d1f30b67b,target=tracing_actix_web::middleware)
-    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tracing-actix-web-0.7.20/src/middleware.rs
-[2026-01-29T14:18:24.906Z]  INFO: test/289299 on JM-PW0C2660: [HTTP REQUEST - END] (exception.details="Parse(Error("missing field `email`"))",exception.message="Parse error: missing field `email`.",http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:40603,http.method=POST,http.route=/subscriptions,http.scheme=http,http.status_code=400,http.target=/subscriptions,http.user_agent="",line=41,otel.kind=server,otel.name="POST /subscriptions",otel.status_code=OK,request_id=718d6528-974d-4e80-9563-751d1f30b67b,target=tracing_actix_web::root_span_builder)
-    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tracing-actix-web-0.7.20/src/root_span_builder.rs
-[2026-01-29T14:18:24.912Z]  INFO: test/289299 on JM-PW0C2660: [STORE CONFIRMATION TOKEN IN DATABASE - END] (file=src/routes/subscriptions.rs,http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:40039,http.method=POST,http.route=/subscriptions,http.scheme=http,http.target=/subscriptions,http.user_agent="",line=141,otel.kind=server,otel.name="POST /subscriptions",request_id=a5c87b18-6110-485c-b4d3-dc693582255b,subscriber_email=harshvse@gmail.com,subscriber_name="Harsh Verma",target=wizard_blog_backend::routes::subscriptions)
-[2026-01-29T14:18:24.912Z]  INFO: test/289299 on JM-PW0C2660: [SEND CONFIRMATION EMAIL AFTER SAVING THE USER IN DATABASE - START] (file=src/routes/subscriptions.rs,line=104,target=wizard_blog_backend::routes::subscriptions)
-[2026-01-29T14:18:24.912Z]  INFO: test/289299 on JM-PW0C2660: [STORE CONFIRMATION TOKEN IN DATABASE - END] (file=src/routes/subscriptions.rs,http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:44611,http.method=POST,http.route=/subscriptions,http.scheme=http,http.target=/subscriptions,http.user_agent="",line=141,otel.kind=server,otel.name="POST /subscriptions",request_id=17ceed45-dc2c-4ccc-abbf-7f24055fc309,subscriber_email=harshvse@gmail.com,subscriber_name="Harsh Verma",target=wizard_blog_backend::routes::subscriptions)
-[2026-01-29T14:18:24.913Z]  INFO: test/289299 on JM-PW0C2660: [SEND CONFIRMATION EMAIL AFTER SAVING THE USER IN DATABASE - START] (file=src/routes/subscriptions.rs,line=104,target=wizard_blog_backend::routes::subscriptions)
-[2026-01-29T14:18:24.913Z]  INFO: test/289299 on JM-PW0C2660: [STORE CONFIRMATION TOKEN IN DATABASE - END] (file=src/routes/subscriptions.rs,http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:33909,http.method=POST,http.route=/subscriptions,http.scheme=http,http.target=/subscriptions,http.user_agent="",line=141,otel.kind=server,otel.name="POST /subscriptions",request_id=0c2b7fb6-6e7a-482b-b202-e3a770aa760f,subscriber_email=harshvse@gmail.com,subscriber_name="Harsh Verma",target=wizard_blog_backend::routes::subscriptions)
-[2026-01-29T14:18:24.913Z]  INFO: test/289299 on JM-PW0C2660: [SEND CONFIRMATION EMAIL AFTER SAVING THE USER IN DATABASE - START] (file=src/routes/subscriptions.rs,line=104,target=wizard_blog_backend::routes::subscriptions)
-[2026-01-29T14:18:24.915Z]  INFO: test/289299 on JM-PW0C2660: [SEND CONFIRMATION EMAIL AFTER SAVING THE USER IN DATABASE - END] (file=src/routes/subscriptions.rs,http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:40039,http.method=POST,http.route=/subscriptions,http.scheme=http,http.target=/subscriptions,http.user_agent="",line=104,otel.kind=server,otel.name="POST /subscriptions",request_id=a5c87b18-6110-485c-b4d3-dc693582255b,subscriber_email=harshvse@gmail.com,subscriber_name="Harsh Verma",target=wizard_blog_backend::routes::subscriptions)
-[2026-01-29T14:18:24.915Z]  INFO: test/289299 on JM-PW0C2660: [SEND CONFIRMATION EMAIL AFTER SAVING THE USER IN DATABASE - END] (file=src/routes/subscriptions.rs,http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:44611,http.method=POST,http.route=/subscriptions,http.scheme=http,http.target=/subscriptions,http.user_agent="",line=104,otel.kind=server,otel.name="POST /subscriptions",request_id=17ceed45-dc2c-4ccc-abbf-7f24055fc309,subscriber_email=harshvse@gmail.com,subscriber_name="Harsh Verma",target=wizard_blog_backend::routes::subscriptions)
-[2026-01-29T14:18:24.915Z]  INFO: test/289299 on JM-PW0C2660: [ADDING A NEW SUBSCRIBER - END] (file=src/routes/subscriptions.rs,http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:40039,http.method=POST,http.route=/subscriptions,http.scheme=http,http.target=/subscriptions,http.user_agent="",line=30,otel.kind=server,otel.name="POST /subscriptions",request_id=a5c87b18-6110-485c-b4d3-dc693582255b,subscriber_email=harshvse@gmail.com,subscriber_name="Harsh Verma",target=wizard_blog_backend::routes::subscriptions)
-[2026-01-29T14:18:24.915Z]  INFO: test/289299 on JM-PW0C2660: [ADDING A NEW SUBSCRIBER - END] (file=src/routes/subscriptions.rs,http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:44611,http.method=POST,http.route=/subscriptions,http.scheme=http,http.target=/subscriptions,http.user_agent="",line=30,otel.kind=server,otel.name="POST /subscriptions",request_id=17ceed45-dc2c-4ccc-abbf-7f24055fc309,subscriber_email=harshvse@gmail.com,subscriber_name="Harsh Verma",target=wizard_blog_backend::routes::subscriptions)
-[2026-01-29T14:18:24.915Z]  INFO: test/289299 on JM-PW0C2660: [HTTP REQUEST - END] (http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:44611,http.method=POST,http.route=/subscriptions,http.scheme=http,http.status_code=200,http.target=/subscriptions,http.user_agent="",line=41,otel.kind=server,otel.name="POST /subscriptions",otel.status_code=OK,request_id=17ceed45-dc2c-4ccc-abbf-7f24055fc309,target=tracing_actix_web::root_span_builder)
-    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tracing-actix-web-0.7.20/src/root_span_builder.rs
-[2026-01-29T14:18:24.915Z]  INFO: test/289299 on JM-PW0C2660: [HTTP REQUEST - END] (http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:40039,http.method=POST,http.route=/subscriptions,http.scheme=http,http.status_code=200,http.target=/subscriptions,http.user_agent="",line=41,otel.kind=server,otel.name="POST /subscriptions",otel.status_code=OK,request_id=a5c87b18-6110-485c-b4d3-dc693582255b,target=tracing_actix_web::root_span_builder)
-    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tracing-actix-web-0.7.20/src/root_span_builder.rs
-[2026-01-29T14:18:24.916Z]  INFO: test/289299 on JM-PW0C2660: [SEND CONFIRMATION EMAIL AFTER SAVING THE USER IN DATABASE - END] (file=src/routes/subscriptions.rs,http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:33909,http.method=POST,http.route=/subscriptions,http.scheme=http,http.target=/subscriptions,http.user_agent="",line=104,otel.kind=server,otel.name="POST /subscriptions",request_id=0c2b7fb6-6e7a-482b-b202-e3a770aa760f,subscriber_email=harshvse@gmail.com,subscriber_name="Harsh Verma",target=wizard_blog_backend::routes::subscriptions)
-[2026-01-29T14:18:24.916Z]  INFO: test/289299 on JM-PW0C2660: [ADDING A NEW SUBSCRIBER - END] (file=src/routes/subscriptions.rs,http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:33909,http.method=POST,http.route=/subscriptions,http.scheme=http,http.target=/subscriptions,http.user_agent="",line=30,otel.kind=server,otel.name="POST /subscriptions",request_id=0c2b7fb6-6e7a-482b-b202-e3a770aa760f,subscriber_email=harshvse@gmail.com,subscriber_name="Harsh Verma",target=wizard_blog_backend::routes::subscriptions)
-[2026-01-29T14:18:24.917Z]  INFO: test/289299 on JM-PW0C2660: [HTTP REQUEST - END] (http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:33909,http.method=POST,http.route=/subscriptions,http.scheme=http,http.status_code=200,http.target=/subscriptions,http.user_agent="",line=41,otel.kind=server,otel.name="POST /subscriptions",otel.status_code=OK,request_id=0c2b7fb6-6e7a-482b-b202-e3a770aa760f,target=tracing_actix_web::root_span_builder)
-    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tracing-actix-web-0.7.20/src/root_span_builder.rs
 test subscriptions::subscribe_sends_a_confirmation_emial_for_valid_data ... ok
 test subscriptions::subscribe_returns_a_200_for_valid_form_data ... ok
-[2026-01-29T14:18:24.936Z]  INFO: test/289299 on JM-PW0C2660: [HTTP REQUEST - START] (line=41,target=tracing_actix_web::root_span_builder)
+[2026-02-17T09:13:08.680Z]  INFO: test/235051 on JM-PW0C2660: [HTTP REQUEST - START] (line=41,target=tracing_actix_web::root_span_builder)
     file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tracing-actix-web-0.7.20/src/root_span_builder.rs
-[2026-01-29T14:18:24.937Z]  INFO: test/289299 on JM-PW0C2660: [ADDING A NEW SUBSCRIBER - START] (file=src/routes/subscriptions.rs,line=30,target=wizard_blog_backend::routes::subscriptions)
-[2026-01-29T14:18:24.937Z]  INFO: test/289299 on JM-PW0C2660: [ADDING A NEW SUBSCRIBER - END] (file=src/routes/subscriptions.rs,http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:34713,http.method=POST,http.route=/subscriptions,http.scheme=http,http.target=/subscriptions,http.user_agent="",line=30,otel.kind=server,otel.name="POST /subscriptions",request_id=1d7e352f-94c6-48d8-88e9-70af94cf4514,subscriber_email="",subscriber_name="harsh verma",target=wizard_blog_backend::routes::subscriptions)
-[2026-01-29T14:18:24.937Z]  INFO: test/289299 on JM-PW0C2660: [HTTP REQUEST - END] (http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:34713,http.method=POST,http.route=/subscriptions,http.scheme=http,http.status_code=400,http.target=/subscriptions,http.user_agent="",line=41,otel.kind=server,otel.name="POST /subscriptions",otel.status_code=OK,request_id=1d7e352f-94c6-48d8-88e9-70af94cf4514,target=tracing_actix_web::root_span_builder)
+[2026-02-17T09:13:08.680Z]  INFO: test/235051 on JM-PW0C2660: [HTTP REQUEST - START] (line=41,target=tracing_actix_web::root_span_builder)
     file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tracing-actix-web-0.7.20/src/root_span_builder.rs
-[2026-01-29T14:18:24.941Z]  INFO: test/289299 on JM-PW0C2660: [HTTP REQUEST - START] (line=41,target=tracing_actix_web::root_span_builder)
+[2026-02-17T09:13:08.680Z]  INFO: test/235051 on JM-PW0C2660: [HTTP REQUEST - END] (http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:37587,http.method=GET,http.route=/health,http.scheme=http,http.status_code=200,http.target=/health,http.user_agent="",line=41,otel.kind=server,otel.name="GET /health",otel.status_code=OK,request_id=c8c053c0-df6d-419e-93c8-3a9a66112dfc,target=tracing_actix_web::root_span_builder)
     file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tracing-actix-web-0.7.20/src/root_span_builder.rs
-[2026-01-29T14:18:24.941Z]  INFO: test/289299 on JM-PW0C2660: [HTTP REQUEST - START] (line=41,target=tracing_actix_web::root_span_builder)
-    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tracing-actix-web-0.7.20/src/root_span_builder.rs
-[2026-01-29T14:18:24.941Z]  INFO: test/289299 on JM-PW0C2660: [CONFIRM A PENDING SUBSCRIBER - START] (file=src/routes/subscriptions_confirm.rs,line=11,target=wizard_blog_backend::routes::subscriptions_confirm)
-[2026-01-29T14:18:24.941Z]  INFO: test/289299 on JM-PW0C2660: [CONFIRM A PENDING SUBSCRIBER - START] (file=src/routes/subscriptions_confirm.rs,line=11,target=wizard_blog_backend::routes::subscriptions_confirm)
-[2026-01-29T14:18:24.941Z]  INFO: test/289299 on JM-PW0C2660: [FETCH SUBSCRIBER_ID FOR GIVEN TOKEN - START] (file=src/routes/subscriptions_confirm.rs,line=29,target=wizard_blog_backend::routes::subscriptions_confirm)
-[2026-01-29T14:18:24.941Z]  INFO: test/289299 on JM-PW0C2660: [FETCH SUBSCRIBER_ID FOR GIVEN TOKEN - START] (file=src/routes/subscriptions_confirm.rs,line=29,target=wizard_blog_backend::routes::subscriptions_confirm)
-[2026-01-29T14:18:24.943Z]  INFO: test/289299 on JM-PW0C2660: [FETCH SUBSCRIBER_ID FOR GIVEN TOKEN - END] (file=src/routes/subscriptions_confirm.rs,http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:33909,http.method=GET,http.route=/subscriptions/confirm,http.scheme=http,http.user_agent="",line=29,otel.kind=server,otel.name="GET /subscriptions/confirm",request_id=7f8b3170-dfad-4541-9817-1c32596db0cf,target=wizard_blog_backend::routes::subscriptions_confirm)
-    http.target: /subscriptions/confirm?subscription_token=4b589b81-273d-40ad-9aa2-158da38a7f44
-[2026-01-29T14:18:24.943Z]  INFO: test/289299 on JM-PW0C2660: [FETCH SUBSCRIBER_ID FOR GIVEN TOKEN - END] (file=src/routes/subscriptions_confirm.rs,http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:41443,http.method=GET,http.route=/subscriptions/confirm,http.scheme=http,http.user_agent="",line=29,otel.kind=server,otel.name="GET /subscriptions/confirm",request_id=2118c603-ed06-4323-9249-70002965b746,target=wizard_blog_backend::routes::subscriptions_confirm)
-    http.target: /subscriptions/confirm?subscription_token=3fda9bba-6cea-41f9-94a2-b801f7b03898
-[2026-01-29T14:18:24.943Z]  INFO: test/289299 on JM-PW0C2660: [CONFIRM A PENDING SUBSCRIBER - END] (file=src/routes/subscriptions_confirm.rs,http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:33909,http.method=GET,http.route=/subscriptions/confirm,http.scheme=http,http.user_agent="",line=11,otel.kind=server,otel.name="GET /subscriptions/confirm",request_id=7f8b3170-dfad-4541-9817-1c32596db0cf,target=wizard_blog_backend::routes::subscriptions_confirm)
-    http.target: /subscriptions/confirm?subscription_token=4b589b81-273d-40ad-9aa2-158da38a7f44
-[2026-01-29T14:18:24.943Z]  INFO: test/289299 on JM-PW0C2660: [CONFIRM A PENDING SUBSCRIBER - END] (file=src/routes/subscriptions_confirm.rs,http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:41443,http.method=GET,http.route=/subscriptions/confirm,http.scheme=http,http.user_agent="",line=11,otel.kind=server,otel.name="GET /subscriptions/confirm",request_id=2118c603-ed06-4323-9249-70002965b746,target=wizard_blog_backend::routes::subscriptions_confirm)
-    http.target: /subscriptions/confirm?subscription_token=3fda9bba-6cea-41f9-94a2-b801f7b03898
-[2026-01-29T14:18:24.944Z]  INFO: test/289299 on JM-PW0C2660: [HTTP REQUEST - END] (http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:41443,http.method=GET,http.route=/subscriptions/confirm,http.scheme=http,http.status_code=401,http.user_agent="",line=41,otel.kind=server,otel.name="GET /subscriptions/confirm",otel.status_code=OK,request_id=2118c603-ed06-4323-9249-70002965b746,target=tracing_actix_web::root_span_builder)
-    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tracing-actix-web-0.7.20/src/root_span_builder.rs
-    --
-    http.target: /subscriptions/confirm?subscription_token=3fda9bba-6cea-41f9-94a2-b801f7b03898
-[2026-01-29T14:18:24.944Z]  INFO: test/289299 on JM-PW0C2660: [HTTP REQUEST - END] (http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:33909,http.method=GET,http.route=/subscriptions/confirm,http.scheme=http,http.status_code=401,http.user_agent="",line=41,otel.kind=server,otel.name="GET /subscriptions/confirm",otel.status_code=OK,request_id=7f8b3170-dfad-4541-9817-1c32596db0cf,target=tracing_actix_web::root_span_builder)
-    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tracing-actix-web-0.7.20/src/root_span_builder.rs
-    --
-    http.target: /subscriptions/confirm?subscription_token=4b589b81-273d-40ad-9aa2-158da38a7f44
-test subscriptions_confirm::the_link_returned_by_subscribe_returns_a_200_if_called ... FAILED
-test subscriptions_confirm::clicking_on_the_confirmation_link_confirms_a_subscriber ... FAILED
-[2026-01-29T14:18:24.954Z]  INFO: test/289299 on JM-PW0C2660: [HTTP REQUEST - START] (line=41,target=tracing_actix_web::root_span_builder)
-    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tracing-actix-web-0.7.20/src/root_span_builder.rs
-[2026-01-29T14:18:24.955Z]  WARN: test/289299 on JM-PW0C2660: [HTTP REQUEST - EVENT] Error encountered while processing the incoming HTTP request: Parse(Error("missing field `name`")) (exception.details="Parse(Error("missing field `name`"))",exception.message="Parse error: missing field `name`.",http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:40603,http.method=POST,http.route=/subscriptions,http.scheme=http,http.status_code=400,http.target=/subscriptions,http.user_agent="",line=256,otel.kind=server,otel.name="POST /subscriptions",otel.status_code=OK,request_id=a77c1b2c-5a9c-4832-9c33-5a6d976781fb,target=tracing_actix_web::middleware)
+[2026-02-17T09:13:08.681Z]  WARN: test/235051 on JM-PW0C2660: [HTTP REQUEST - EVENT] Error encountered while processing the incoming HTTP request: Parse(Error("missing field `email`")) (exception.details="Parse(Error("missing field `email`"))",exception.message="Parse error: missing field `email`.",http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:34009,http.method=POST,http.route=/subscriptions,http.scheme=http,http.status_code=400,http.target=/subscriptions,http.user_agent="",line=256,otel.kind=server,otel.name="POST /subscriptions",otel.status_code=OK,request_id=8f461b1a-8137-4525-81b4-db1758c2fe1d,target=tracing_actix_web::middleware)
     file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tracing-actix-web-0.7.20/src/middleware.rs
-[2026-01-29T14:18:24.955Z]  INFO: test/289299 on JM-PW0C2660: [HTTP REQUEST - END] (exception.details="Parse(Error("missing field `name`"))",exception.message="Parse error: missing field `name`.",http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:40603,http.method=POST,http.route=/subscriptions,http.scheme=http,http.status_code=400,http.target=/subscriptions,http.user_agent="",line=41,otel.kind=server,otel.name="POST /subscriptions",otel.status_code=OK,request_id=a77c1b2c-5a9c-4832-9c33-5a6d976781fb,target=tracing_actix_web::root_span_builder)
+[2026-02-17T09:13:08.681Z]  INFO: test/235051 on JM-PW0C2660: [HTTP REQUEST - START] (line=41,target=tracing_actix_web::root_span_builder)
+    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tracing-actix-web-0.7.20/src/root_span_builder.rs
+[2026-02-17T09:13:08.681Z]  INFO: test/235051 on JM-PW0C2660: [HTTP REQUEST - START] (line=41,target=tracing_actix_web::root_span_builder)
+    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tracing-actix-web-0.7.20/src/root_span_builder.rs
+[2026-02-17T09:13:08.681Z]  INFO: test/235051 on JM-PW0C2660: [HTTP REQUEST - END] (exception.details="Parse(Error("missing field `email`"))",exception.message="Parse error: missing field `email`.",http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:34009,http.method=POST,http.route=/subscriptions,http.scheme=http,http.status_code=400,http.target=/subscriptions,http.user_agent="",line=41,otel.kind=server,otel.name="POST /subscriptions",otel.status_code=OK,request_id=8f461b1a-8137-4525-81b4-db1758c2fe1d,target=tracing_actix_web::root_span_builder)
+    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tracing-actix-web-0.7.20/src/root_span_builder.rs
+[2026-02-17T09:13:08.681Z]  INFO: test/235051 on JM-PW0C2660: [ADDING A NEW SUBSCRIBER - START] (file=src/routes/subscriptions.rs,line=57,target=wizard_blog_backend::routes::subscriptions)
+[2026-02-17T09:13:08.681Z]  INFO: test/235051 on JM-PW0C2660: [ADDING A NEW SUBSCRIBER - START] (file=src/routes/subscriptions.rs,line=57,target=wizard_blog_backend::routes::subscriptions)
+[2026-02-17T09:13:08.681Z]  INFO: test/235051 on JM-PW0C2660: [HTTP REQUEST - START] (line=41,target=tracing_actix_web::root_span_builder)
+    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tracing-actix-web-0.7.20/src/root_span_builder.rs
+[2026-02-17T09:13:08.681Z]  INFO: test/235051 on JM-PW0C2660: [ADDING A NEW SUBSCRIBER - START] (file=src/routes/subscriptions.rs,line=57,target=wizard_blog_backend::routes::subscriptions)
+test health_check::health_check_works ... ok
+[2026-02-17T09:13:08.686Z]  INFO: test/235051 on JM-PW0C2660: [SAVING NEW SUBSCRIBER DETAILS IN THE DATABASE - START] (file=src/routes/subscriptions.rs,line=94,target=wizard_blog_backend::routes::subscriptions)
+[2026-02-17T09:13:08.686Z]  INFO: test/235051 on JM-PW0C2660: [SAVING NEW SUBSCRIBER DETAILS IN THE DATABASE - START] (file=src/routes/subscriptions.rs,line=94,target=wizard_blog_backend::routes::subscriptions)
+[2026-02-17T09:13:08.686Z]  INFO: test/235051 on JM-PW0C2660: [SAVING NEW SUBSCRIBER DETAILS IN THE DATABASE - START] (file=src/routes/subscriptions.rs,line=94,target=wizard_blog_backend::routes::subscriptions)
+[2026-02-17T09:13:08.687Z]  INFO: test/235051 on JM-PW0C2660: [SAVING NEW SUBSCRIBER DETAILS IN THE DATABASE - END] (file=src/routes/subscriptions.rs,http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:41227,http.method=POST,http.route=/subscriptions,http.scheme=http,http.target=/subscriptions,http.user_agent="",line=94,otel.kind=server,otel.name="POST /subscriptions",request_id=220be5b0-403b-481c-9b6e-3f19509f2f61,subscriber_email=harshvse@gmail.com,subscriber_name="Harsh Verma",target=wizard_blog_backend::routes::subscriptions)
+[2026-02-17T09:13:08.687Z]  INFO: test/235051 on JM-PW0C2660: [STORE CONFIRMATION TOKEN IN DATABASE - START] (file=src/routes/subscriptions.rs,line=157,target=wizard_blog_backend::routes::subscriptions)
+[2026-02-17T09:13:08.687Z]  INFO: test/235051 on JM-PW0C2660: [SAVING NEW SUBSCRIBER DETAILS IN THE DATABASE - END] (file=src/routes/subscriptions.rs,http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:43481,http.method=POST,http.route=/subscriptions,http.scheme=http,http.target=/subscriptions,http.user_agent="",line=94,otel.kind=server,otel.name="POST /subscriptions",request_id=e4e8778b-bbe8-49af-8c50-ee43b6092eb6,subscriber_email=harshvse@gmail.com,subscriber_name="Harsh Verma",target=wizard_blog_backend::routes::subscriptions)
+[2026-02-17T09:13:08.687Z]  INFO: test/235051 on JM-PW0C2660: [STORE CONFIRMATION TOKEN IN DATABASE - START] (file=src/routes/subscriptions.rs,line=157,target=wizard_blog_backend::routes::subscriptions)
+[2026-02-17T09:13:08.687Z]  INFO: test/235051 on JM-PW0C2660: [SAVING NEW SUBSCRIBER DETAILS IN THE DATABASE - END] (file=src/routes/subscriptions.rs,http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:44305,http.method=POST,http.route=/subscriptions,http.scheme=http,http.target=/subscriptions,http.user_agent="",line=94,otel.kind=server,otel.name="POST /subscriptions",request_id=54f4e117-f50c-47e7-90b1-3e642261a378,subscriber_email=harshvse@gmail.com,subscriber_name="Harsh Verma",target=wizard_blog_backend::routes::subscriptions)
+[2026-02-17T09:13:08.687Z]  INFO: test/235051 on JM-PW0C2660: [STORE CONFIRMATION TOKEN IN DATABASE - START] (file=src/routes/subscriptions.rs,line=157,target=wizard_blog_backend::routes::subscriptions)
+[2026-02-17T09:13:08.688Z]  INFO: test/235051 on JM-PW0C2660: [STORE CONFIRMATION TOKEN IN DATABASE - END] (file=src/routes/subscriptions.rs,http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:41227,http.method=POST,http.route=/subscriptions,http.scheme=http,http.target=/subscriptions,http.user_agent="",line=157,otel.kind=server,otel.name="POST /subscriptions",request_id=220be5b0-403b-481c-9b6e-3f19509f2f61,subscriber_email=harshvse@gmail.com,subscriber_name="Harsh Verma",target=wizard_blog_backend::routes::subscriptions)
+[2026-02-17T09:13:08.688Z]  INFO: test/235051 on JM-PW0C2660: [STORE CONFIRMATION TOKEN IN DATABASE - END] (file=src/routes/subscriptions.rs,http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:43481,http.method=POST,http.route=/subscriptions,http.scheme=http,http.target=/subscriptions,http.user_agent="",line=157,otel.kind=server,otel.name="POST /subscriptions",request_id=e4e8778b-bbe8-49af-8c50-ee43b6092eb6,subscriber_email=harshvse@gmail.com,subscriber_name="Harsh Verma",target=wizard_blog_backend::routes::subscriptions)
+[2026-02-17T09:13:08.688Z]  INFO: test/235051 on JM-PW0C2660: [STORE CONFIRMATION TOKEN IN DATABASE - END] (file=src/routes/subscriptions.rs,http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:44305,http.method=POST,http.route=/subscriptions,http.scheme=http,http.target=/subscriptions,http.user_agent="",line=157,otel.kind=server,otel.name="POST /subscriptions",request_id=54f4e117-f50c-47e7-90b1-3e642261a378,subscriber_email=harshvse@gmail.com,subscriber_name="Harsh Verma",target=wizard_blog_backend::routes::subscriptions)
+[2026-02-17T09:13:08.689Z]  INFO: test/235051 on JM-PW0C2660: [SEND CONFIRMATION EMAIL AFTER SAVING THE USER IN DATABASE - START] (file=src/routes/subscriptions.rs,line=120,target=wizard_blog_backend::routes::subscriptions)
+[2026-02-17T09:13:08.689Z]  INFO: test/235051 on JM-PW0C2660: [HTTP REQUEST - START] (line=41,target=tracing_actix_web::root_span_builder)
+    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tracing-actix-web-0.7.20/src/root_span_builder.rs
+[2026-02-17T09:13:08.689Z]  INFO: test/235051 on JM-PW0C2660: [SEND CONFIRMATION EMAIL AFTER SAVING THE USER IN DATABASE - START] (file=src/routes/subscriptions.rs,line=120,target=wizard_blog_backend::routes::subscriptions)
+[2026-02-17T09:13:08.689Z]  INFO: test/235051 on JM-PW0C2660: [SEND CONFIRMATION EMAIL AFTER SAVING THE USER IN DATABASE - START] (file=src/routes/subscriptions.rs,line=120,target=wizard_blog_backend::routes::subscriptions)
+[2026-02-17T09:13:08.689Z]  INFO: test/235051 on JM-PW0C2660: [CONFIRM A PENDING SUBSCRIBER - START] (file=src/routes/subscriptions_confirm.rs,line=64,target=wizard_blog_backend::routes::subscriptions_confirm)
+[2026-02-17T09:13:08.690Z]  INFO: test/235051 on JM-PW0C2660: [HTTP REQUEST - START] (line=41,target=tracing_actix_web::root_span_builder)
+    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tracing-actix-web-0.7.20/src/root_span_builder.rs
+[2026-02-17T09:13:08.690Z]  INFO: test/235051 on JM-PW0C2660: [FETCH SUBSCRIBER_ID FOR GIVEN TOKEN - START] (file=src/routes/subscriptions_confirm.rs,line=94,target=wizard_blog_backend::routes::subscriptions_confirm)
+[2026-02-17T09:13:08.690Z]  INFO: test/235051 on JM-PW0C2660: [ADDING A NEW SUBSCRIBER - START] (file=src/routes/subscriptions.rs,line=57,target=wizard_blog_backend::routes::subscriptions)
+[2026-02-17T09:13:08.690Z]  INFO: test/235051 on JM-PW0C2660: [ADDING A NEW SUBSCRIBER - END] (file=src/routes/subscriptions.rs,http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:36027,http.method=POST,http.route=/subscriptions,http.scheme=http,http.target=/subscriptions,http.user_agent="",line=57,otel.kind=server,otel.name="POST /subscriptions",request_id=1dd0b3f1-16df-473e-aada-73822c5fbafd,subscriber_email="",subscriber_name="harsh verma",target=wizard_blog_backend::routes::subscriptions)
+[2026-02-17T09:13:08.690Z]  INFO: test/235051 on JM-PW0C2660: [SEND CONFIRMATION EMAIL AFTER SAVING THE USER IN DATABASE - END] (file=src/routes/subscriptions.rs,http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:43481,http.method=POST,http.route=/subscriptions,http.scheme=http,http.target=/subscriptions,http.user_agent="",line=120,otel.kind=server,otel.name="POST /subscriptions",request_id=e4e8778b-bbe8-49af-8c50-ee43b6092eb6,subscriber_email=harshvse@gmail.com,subscriber_name="Harsh Verma",target=wizard_blog_backend::routes::subscriptions)
+[2026-02-17T09:13:08.690Z]  WARN: test/235051 on JM-PW0C2660: [HTTP REQUEST - EVENT] Error encountered while processing the incoming HTTP request:  is an invalid email
+
+ (exception.message=" is an invalid email",http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:36027,http.method=POST,http.route=/subscriptions,http.scheme=http,http.status_code=400,http.target=/subscriptions,http.user_agent="",line=256,otel.kind=server,otel.name="POST /subscriptions",otel.status_code=OK,request_id=1dd0b3f1-16df-473e-aada-73822c5fbafd,target=tracing_actix_web::middleware)
+    exception.details:  is an invalid email
+    
+    --
+    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tracing-actix-web-0.7.20/src/middleware.rs
+[2026-02-17T09:13:08.690Z]  INFO: test/235051 on JM-PW0C2660: [ADDING A NEW SUBSCRIBER - END] (file=src/routes/subscriptions.rs,http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:43481,http.method=POST,http.route=/subscriptions,http.scheme=http,http.target=/subscriptions,http.user_agent="",line=57,otel.kind=server,otel.name="POST /subscriptions",request_id=e4e8778b-bbe8-49af-8c50-ee43b6092eb6,subscriber_email=harshvse@gmail.com,subscriber_name="Harsh Verma",target=wizard_blog_backend::routes::subscriptions)
+[2026-02-17T09:13:08.690Z]  INFO: test/235051 on JM-PW0C2660: [HTTP REQUEST - END] (exception.message=" is an invalid email",http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:36027,http.method=POST,http.route=/subscriptions,http.scheme=http,http.status_code=400,http.target=/subscriptions,http.user_agent="",line=41,otel.kind=server,otel.name="POST /subscriptions",otel.status_code=OK,request_id=1dd0b3f1-16df-473e-aada-73822c5fbafd,target=tracing_actix_web::root_span_builder)
+    exception.details:  is an invalid email
+    
+    --
+    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tracing-actix-web-0.7.20/src/root_span_builder.rs
+[2026-02-17T09:13:08.690Z]  INFO: test/235051 on JM-PW0C2660: [HTTP REQUEST - END] (http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:43481,http.method=POST,http.route=/subscriptions,http.scheme=http,http.status_code=200,http.target=/subscriptions,http.user_agent="",line=41,otel.kind=server,otel.name="POST /subscriptions",otel.status_code=OK,request_id=e4e8778b-bbe8-49af-8c50-ee43b6092eb6,target=tracing_actix_web::root_span_builder)
+    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tracing-actix-web-0.7.20/src/root_span_builder.rs
+[2026-02-17T09:13:08.690Z]  INFO: test/235051 on JM-PW0C2660: [SEND CONFIRMATION EMAIL AFTER SAVING THE USER IN DATABASE - END] (file=src/routes/subscriptions.rs,http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:41227,http.method=POST,http.route=/subscriptions,http.scheme=http,http.target=/subscriptions,http.user_agent="",line=120,otel.kind=server,otel.name="POST /subscriptions",request_id=220be5b0-403b-481c-9b6e-3f19509f2f61,subscriber_email=harshvse@gmail.com,subscriber_name="Harsh Verma",target=wizard_blog_backend::routes::subscriptions)
+[2026-02-17T09:13:08.690Z]  INFO: test/235051 on JM-PW0C2660: [SEND CONFIRMATION EMAIL AFTER SAVING THE USER IN DATABASE - END] (file=src/routes/subscriptions.rs,http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:44305,http.method=POST,http.route=/subscriptions,http.scheme=http,http.target=/subscriptions,http.user_agent="",line=120,otel.kind=server,otel.name="POST /subscriptions",request_id=54f4e117-f50c-47e7-90b1-3e642261a378,subscriber_email=harshvse@gmail.com,subscriber_name="Harsh Verma",target=wizard_blog_backend::routes::subscriptions)
+[2026-02-17T09:13:08.690Z]  INFO: test/235051 on JM-PW0C2660: [ADDING A NEW SUBSCRIBER - END] (file=src/routes/subscriptions.rs,http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:41227,http.method=POST,http.route=/subscriptions,http.scheme=http,http.target=/subscriptions,http.user_agent="",line=57,otel.kind=server,otel.name="POST /subscriptions",request_id=220be5b0-403b-481c-9b6e-3f19509f2f61,subscriber_email=harshvse@gmail.com,subscriber_name="Harsh Verma",target=wizard_blog_backend::routes::subscriptions)
+[2026-02-17T09:13:08.690Z]  INFO: test/235051 on JM-PW0C2660: [ADDING A NEW SUBSCRIBER - END] (file=src/routes/subscriptions.rs,http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:44305,http.method=POST,http.route=/subscriptions,http.scheme=http,http.target=/subscriptions,http.user_agent="",line=57,otel.kind=server,otel.name="POST /subscriptions",request_id=54f4e117-f50c-47e7-90b1-3e642261a378,subscriber_email=harshvse@gmail.com,subscriber_name="Harsh Verma",target=wizard_blog_backend::routes::subscriptions)
+[2026-02-17T09:13:08.690Z]  INFO: test/235051 on JM-PW0C2660: [HTTP REQUEST - END] (http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:41227,http.method=POST,http.route=/subscriptions,http.scheme=http,http.status_code=200,http.target=/subscriptions,http.user_agent="",line=41,otel.kind=server,otel.name="POST /subscriptions",otel.status_code=OK,request_id=220be5b0-403b-481c-9b6e-3f19509f2f61,target=tracing_actix_web::root_span_builder)
+    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tracing-actix-web-0.7.20/src/root_span_builder.rs
+[2026-02-17T09:13:08.691Z]  INFO: test/235051 on JM-PW0C2660: [HTTP REQUEST - END] (http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:44305,http.method=POST,http.route=/subscriptions,http.scheme=http,http.status_code=200,http.target=/subscriptions,http.user_agent="",line=41,otel.kind=server,otel.name="POST /subscriptions",otel.status_code=OK,request_id=54f4e117-f50c-47e7-90b1-3e642261a378,target=tracing_actix_web::root_span_builder)
+    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tracing-actix-web-0.7.20/src/root_span_builder.rs
+[2026-02-17T09:13:08.691Z]  INFO: test/235051 on JM-PW0C2660: [FETCH SUBSCRIBER_ID FOR GIVEN TOKEN - END] (file=src/routes/subscriptions_confirm.rs,http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:45551,http.method=GET,http.route=/subscriptions/confirm,http.scheme=http,http.user_agent="",line=94,otel.kind=server,otel.name="GET /subscriptions/confirm",request_id=866b1766-4934-4291-b926-f869cae1d585,target=wizard_blog_backend::routes::subscriptions_confirm)
+    http.target: /subscriptions/confirm?subscription_token=Gxj2s8sVXD7L8IT9h6yfJRKq5ab8ZiLogOQ7nmvQ4wBjQjkZ7Q
+[2026-02-17T09:13:08.691Z]  INFO: test/235051 on JM-PW0C2660: [SET STATUS OF SUBSCRIBER TO CONFIRMED - START] (file=src/routes/subscriptions_confirm.rs,line=117,target=wizard_blog_backend::routes::subscriptions_confirm)
+[2026-02-17T09:13:08.691Z]  INFO: test/235051 on JM-PW0C2660: [SET STATUS OF SUBSCRIBER TO CONFIRMED - END] (file=src/routes/subscriptions_confirm.rs,http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:45551,http.method=GET,http.route=/subscriptions/confirm,http.scheme=http,http.user_agent="",line=117,otel.kind=server,otel.name="GET /subscriptions/confirm",request_id=866b1766-4934-4291-b926-f869cae1d585,target=wizard_blog_backend::routes::subscriptions_confirm)
+    http.target: /subscriptions/confirm?subscription_token=Gxj2s8sVXD7L8IT9h6yfJRKq5ab8ZiLogOQ7nmvQ4wBjQjkZ7Q
+[2026-02-17T09:13:08.692Z]  INFO: test/235051 on JM-PW0C2660: [CONFIRM A PENDING SUBSCRIBER - END] (file=src/routes/subscriptions_confirm.rs,http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:45551,http.method=GET,http.route=/subscriptions/confirm,http.scheme=http,http.user_agent="",line=64,otel.kind=server,otel.name="GET /subscriptions/confirm",request_id=866b1766-4934-4291-b926-f869cae1d585,target=wizard_blog_backend::routes::subscriptions_confirm)
+    http.target: /subscriptions/confirm?subscription_token=Gxj2s8sVXD7L8IT9h6yfJRKq5ab8ZiLogOQ7nmvQ4wBjQjkZ7Q
+[2026-02-17T09:13:08.692Z]  INFO: test/235051 on JM-PW0C2660: [HTTP REQUEST - END] (http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:45551,http.method=GET,http.route=/subscriptions/confirm,http.scheme=http,http.status_code=200,http.user_agent="",line=41,otel.kind=server,otel.name="GET /subscriptions/confirm",otel.status_code=OK,request_id=866b1766-4934-4291-b926-f869cae1d585,target=tracing_actix_web::root_span_builder)
+    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tracing-actix-web-0.7.20/src/root_span_builder.rs
+    --
+    http.target: /subscriptions/confirm?subscription_token=Gxj2s8sVXD7L8IT9h6yfJRKq5ab8ZiLogOQ7nmvQ4wBjQjkZ7Q
+[2026-02-17T09:13:08.694Z]  INFO: test/235051 on JM-PW0C2660: [HTTP REQUEST - START] (line=41,target=tracing_actix_web::root_span_builder)
+    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tracing-actix-web-0.7.20/src/root_span_builder.rs
+[2026-02-17T09:13:08.694Z]  WARN: test/235051 on JM-PW0C2660: [HTTP REQUEST - EVENT] Error encountered while processing the incoming HTTP request: Deserialize(Error("missing field `context`", line: 1, column: 23)) (http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:43403,http.method=POST,http.route=/newsletters,http.scheme=http,http.status_code=400,http.target=/newsletters,http.user_agent="",line=256,otel.kind=server,otel.name="POST /newsletters",otel.status_code=OK,request_id=1a6e2185-db00-47a8-8733-700310dc8910,target=tracing_actix_web::middleware)
+    exception.details: Deserialize(Error("missing field `context`", line: 1, column: 23))
+    --
+    exception.message: Json deserialize error: missing field `context` at line 1 column 23
+    --
+    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tracing-actix-web-0.7.20/src/middleware.rs
+[2026-02-17T09:13:08.694Z]  INFO: test/235051 on JM-PW0C2660: [HTTP REQUEST - END] (http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:43403,http.method=POST,http.route=/newsletters,http.scheme=http,http.status_code=400,http.target=/newsletters,http.user_agent="",line=41,otel.kind=server,otel.name="POST /newsletters",otel.status_code=OK,request_id=1a6e2185-db00-47a8-8733-700310dc8910,target=tracing_actix_web::root_span_builder)
+    exception.details: Deserialize(Error("missing field `context`", line: 1, column: 23))
+    --
+    exception.message: Json deserialize error: missing field `context` at line 1 column 23
+    --
+    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tracing-actix-web-0.7.20/src/root_span_builder.rs
+test newsletter::newsletters_returns_400_for_invalid_data ... ok
+test subscriptions::subscribe_persists_the_new_subscriber ... ok
+[2026-02-17T09:13:08.699Z]  INFO: test/235051 on JM-PW0C2660: [HTTP REQUEST - START] (line=41,target=tracing_actix_web::root_span_builder)
+    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tracing-actix-web-0.7.20/src/root_span_builder.rs
+[2026-02-17T09:13:08.700Z]  WARN: test/235051 on JM-PW0C2660: [HTTP REQUEST - EVENT] Error encountered while processing the incoming HTTP request: Parse(Error("missing field `name`")) (exception.details="Parse(Error("missing field `name`"))",exception.message="Parse error: missing field `name`.",http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:34009,http.method=POST,http.route=/subscriptions,http.scheme=http,http.status_code=400,http.target=/subscriptions,http.user_agent="",line=256,otel.kind=server,otel.name="POST /subscriptions",otel.status_code=OK,request_id=fe4825e4-27a4-4f14-80f3-d9b808687a56,target=tracing_actix_web::middleware)
+    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tracing-actix-web-0.7.20/src/middleware.rs
+[2026-02-17T09:13:08.700Z]  INFO: test/235051 on JM-PW0C2660: [HTTP REQUEST - END] (exception.details="Parse(Error("missing field `name`"))",exception.message="Parse error: missing field `name`.",http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:34009,http.method=POST,http.route=/subscriptions,http.scheme=http,http.status_code=400,http.target=/subscriptions,http.user_agent="",line=41,otel.kind=server,otel.name="POST /subscriptions",otel.status_code=OK,request_id=fe4825e4-27a4-4f14-80f3-d9b808687a56,target=tracing_actix_web::root_span_builder)
+    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tracing-actix-web-0.7.20/src/root_span_builder.rs
+[2026-02-17T09:13:08.702Z]  INFO: test/235051 on JM-PW0C2660: [HTTP REQUEST - START] (line=41,target=tracing_actix_web::root_span_builder)
     file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tracing-actix-web-0.7.20/src/root_span_builder.rs
 test subscriptions::subscribe_returns_400_for_invalid_form_data ... ok
-[2026-01-29T14:18:24.969Z]  INFO: test/289299 on JM-PW0C2660: [HTTP REQUEST - START] (line=41,target=tracing_actix_web::root_span_builder)
+[2026-02-17T09:13:08.702Z]  INFO: test/235051 on JM-PW0C2660: [PUBLISH A NEW NEWSLETTER - START] (file=src/routes/newsletter.rs,line=43,target=wizard_blog_backend::routes::newsletter)
+[2026-02-17T09:13:08.702Z]  INFO: test/235051 on JM-PW0C2660: [GET CONFIRMED SUBSCRIBERS - START] (file=src/routes/newsletter.rs,line=82,target=wizard_blog_backend::routes::newsletter)
+[2026-02-17T09:13:08.703Z]  INFO: test/235051 on JM-PW0C2660: [GET CONFIRMED SUBSCRIBERS - END] (email_html_content="<p>Newsletter body as Html</p>",email_text_content="Newsletter body as plain text",email_title="newsletter title",file=src/routes/newsletter.rs,http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:41227,http.method=POST,http.route=/newsletters,http.scheme=http,http.target=/newsletters,http.user_agent="",line=82,otel.kind=server,otel.name="POST /newsletters",request_id=3dca9197-fa63-4f52-b17b-42491a0fec35,target=wizard_blog_backend::routes::newsletter)
+[2026-02-17T09:13:08.703Z]  INFO: test/235051 on JM-PW0C2660: [PUBLISH A NEW NEWSLETTER - END] (email_html_content="<p>Newsletter body as Html</p>",email_text_content="Newsletter body as plain text",email_title="newsletter title",file=src/routes/newsletter.rs,http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:41227,http.method=POST,http.route=/newsletters,http.scheme=http,http.target=/newsletters,http.user_agent="",line=43,otel.kind=server,otel.name="POST /newsletters",request_id=3dca9197-fa63-4f52-b17b-42491a0fec35,target=wizard_blog_backend::routes::newsletter)
+[2026-02-17T09:13:08.703Z]  INFO: test/235051 on JM-PW0C2660: [HTTP REQUEST - END] (http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:41227,http.method=POST,http.route=/newsletters,http.scheme=http,http.status_code=200,http.target=/newsletters,http.user_agent="",line=41,otel.kind=server,otel.name="POST /newsletters",otel.status_code=OK,request_id=3dca9197-fa63-4f52-b17b-42491a0fec35,target=tracing_actix_web::root_span_builder)
     file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tracing-actix-web-0.7.20/src/root_span_builder.rs
-[2026-01-29T14:18:24.969Z]  INFO: test/289299 on JM-PW0C2660: [ADDING A NEW SUBSCRIBER - START] (file=src/routes/subscriptions.rs,line=30,target=wizard_blog_backend::routes::subscriptions)
-[2026-01-29T14:18:24.969Z]  INFO: test/289299 on JM-PW0C2660: [ADDING A NEW SUBSCRIBER - END] (file=src/routes/subscriptions.rs,http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:34713,http.method=POST,http.route=/subscriptions,http.scheme=http,http.target=/subscriptions,http.user_agent="",line=30,otel.kind=server,otel.name="POST /subscriptions",request_id=a6eb36b2-dcea-4526-8f0e-2389930de998,subscriber_email=def-not-an-email,subscriber_name="harsh verma",target=wizard_blog_backend::routes::subscriptions)
-[2026-01-29T14:18:24.969Z]  INFO: test/289299 on JM-PW0C2660: [HTTP REQUEST - END] (http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:34713,http.method=POST,http.route=/subscriptions,http.scheme=http,http.status_code=400,http.target=/subscriptions,http.user_agent="",line=41,otel.kind=server,otel.name="POST /subscriptions",otel.status_code=OK,request_id=a6eb36b2-dcea-4526-8f0e-2389930de998,target=tracing_actix_web::root_span_builder)
+test newsletter::newsletter_are_not_delivered_to_unconfirmed_subscribers ... ok
+[2026-02-17T09:13:08.709Z]  INFO: test/235051 on JM-PW0C2660: [HTTP REQUEST - START] (line=41,target=tracing_actix_web::root_span_builder)
     file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tracing-actix-web-0.7.20/src/root_span_builder.rs
+[2026-02-17T09:13:08.709Z]  INFO: test/235051 on JM-PW0C2660: [ADDING A NEW SUBSCRIBER - START] (file=src/routes/subscriptions.rs,line=57,target=wizard_blog_backend::routes::subscriptions)
+[2026-02-17T09:13:08.709Z]  INFO: test/235051 on JM-PW0C2660: [HTTP REQUEST - START] (line=41,target=tracing_actix_web::root_span_builder)
+    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tracing-actix-web-0.7.20/src/root_span_builder.rs
+[2026-02-17T09:13:08.709Z]  INFO: test/235051 on JM-PW0C2660: [ADDING A NEW SUBSCRIBER - END] (file=src/routes/subscriptions.rs,http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:36027,http.method=POST,http.route=/subscriptions,http.scheme=http,http.target=/subscriptions,http.user_agent="",line=57,otel.kind=server,otel.name="POST /subscriptions",request_id=81f05339-7745-478f-b46e-d7beda9ac0a1,subscriber_email=def-not-an-email,subscriber_name="harsh verma",target=wizard_blog_backend::routes::subscriptions)
+[2026-02-17T09:13:08.710Z]  WARN: test/235051 on JM-PW0C2660: [HTTP REQUEST - EVENT] Error encountered while processing the incoming HTTP request: def-not-an-email is an invalid email
+
+ (exception.message="def-not-an-email is an invalid email",http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:36027,http.method=POST,http.route=/subscriptions,http.scheme=http,http.status_code=400,http.target=/subscriptions,http.user_agent="",line=256,otel.kind=server,otel.name="POST /subscriptions",otel.status_code=OK,request_id=81f05339-7745-478f-b46e-d7beda9ac0a1,target=tracing_actix_web::middleware)
+    exception.details: def-not-an-email is an invalid email
+    
+    --
+    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tracing-actix-web-0.7.20/src/middleware.rs
+[2026-02-17T09:13:08.710Z]  INFO: test/235051 on JM-PW0C2660: [CONFIRM A PENDING SUBSCRIBER - START] (file=src/routes/subscriptions_confirm.rs,line=64,target=wizard_blog_backend::routes::subscriptions_confirm)
+[2026-02-17T09:13:08.710Z]  INFO: test/235051 on JM-PW0C2660: [HTTP REQUEST - END] (exception.message="def-not-an-email is an invalid email",http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:36027,http.method=POST,http.route=/subscriptions,http.scheme=http,http.status_code=400,http.target=/subscriptions,http.user_agent="",line=41,otel.kind=server,otel.name="POST /subscriptions",otel.status_code=OK,request_id=81f05339-7745-478f-b46e-d7beda9ac0a1,target=tracing_actix_web::root_span_builder)
+    exception.details: def-not-an-email is an invalid email
+    
+    --
+    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tracing-actix-web-0.7.20/src/root_span_builder.rs
+[2026-02-17T09:13:08.710Z]  INFO: test/235051 on JM-PW0C2660: [HTTP REQUEST - START] (line=41,target=tracing_actix_web::root_span_builder)
+    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tracing-actix-web-0.7.20/src/root_span_builder.rs
+[2026-02-17T09:13:08.710Z]  INFO: test/235051 on JM-PW0C2660: [FETCH SUBSCRIBER_ID FOR GIVEN TOKEN - START] (file=src/routes/subscriptions_confirm.rs,line=94,target=wizard_blog_backend::routes::subscriptions_confirm)
+[2026-02-17T09:13:08.710Z]  INFO: test/235051 on JM-PW0C2660: [PUBLISH A NEW NEWSLETTER - START] (file=src/routes/newsletter.rs,line=43,target=wizard_blog_backend::routes::newsletter)
+[2026-02-17T09:13:08.710Z]  INFO: test/235051 on JM-PW0C2660: [GET CONFIRMED SUBSCRIBERS - START] (file=src/routes/newsletter.rs,line=82,target=wizard_blog_backend::routes::newsletter)
+[2026-02-17T09:13:08.711Z]  INFO: test/235051 on JM-PW0C2660: [FETCH SUBSCRIBER_ID FOR GIVEN TOKEN - END] (file=src/routes/subscriptions_confirm.rs,http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:44305,http.method=GET,http.route=/subscriptions/confirm,http.scheme=http,http.user_agent="",line=94,otel.kind=server,otel.name="GET /subscriptions/confirm",request_id=4e6031a4-5f89-4711-a74c-f9d6ea7f5fbc,target=wizard_blog_backend::routes::subscriptions_confirm)
+    http.target: /subscriptions/confirm?subscription_token=YO7Jommix7qAsOpJGL1wGLShR0kEVt2nLfedBxbT5dCc1nFwBW
+[2026-02-17T09:13:08.711Z]  INFO: test/235051 on JM-PW0C2660: [SET STATUS OF SUBSCRIBER TO CONFIRMED - START] (file=src/routes/subscriptions_confirm.rs,line=117,target=wizard_blog_backend::routes::subscriptions_confirm)
+[2026-02-17T09:13:08.711Z]  INFO: test/235051 on JM-PW0C2660: [GET CONFIRMED SUBSCRIBERS - END] (email_html_content="<p>Newsletter body as Html</p>",email_text_content="Newsletter body as plain text",email_title="newsletter title",file=src/routes/newsletter.rs,http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:45551,http.method=POST,http.route=/newsletters,http.scheme=http,http.target=/newsletters,http.user_agent="",line=82,otel.kind=server,otel.name="POST /newsletters",request_id=b50a5393-a27d-48f1-968a-6da9a0155e14,target=wizard_blog_backend::routes::newsletter)
 test subscriptions::subscribe_returns_400_when_fields_are_present_but_invalid ... ok
+[2026-02-17T09:13:08.711Z]  INFO: test/235051 on JM-PW0C2660: [SET STATUS OF SUBSCRIBER TO CONFIRMED - END] (file=src/routes/subscriptions_confirm.rs,http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:44305,http.method=GET,http.route=/subscriptions/confirm,http.scheme=http,http.user_agent="",line=117,otel.kind=server,otel.name="GET /subscriptions/confirm",request_id=4e6031a4-5f89-4711-a74c-f9d6ea7f5fbc,target=wizard_blog_backend::routes::subscriptions_confirm)
+    http.target: /subscriptions/confirm?subscription_token=YO7Jommix7qAsOpJGL1wGLShR0kEVt2nLfedBxbT5dCc1nFwBW
+[2026-02-17T09:13:08.712Z]  INFO: test/235051 on JM-PW0C2660: [PUBLISH A NEW NEWSLETTER - END] (email_html_content="<p>Newsletter body as Html</p>",email_text_content="Newsletter body as plain text",email_title="newsletter title",file=src/routes/newsletter.rs,http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:45551,http.method=POST,http.route=/newsletters,http.scheme=http,http.target=/newsletters,http.user_agent="",line=43,otel.kind=server,otel.name="POST /newsletters",request_id=b50a5393-a27d-48f1-968a-6da9a0155e14,target=wizard_blog_backend::routes::newsletter)
+[2026-02-17T09:13:08.712Z]  INFO: test/235051 on JM-PW0C2660: [HTTP REQUEST - END] (http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:45551,http.method=POST,http.route=/newsletters,http.scheme=http,http.status_code=200,http.target=/newsletters,http.user_agent="",line=41,otel.kind=server,otel.name="POST /newsletters",otel.status_code=OK,request_id=b50a5393-a27d-48f1-968a-6da9a0155e14,target=tracing_actix_web::root_span_builder)
+    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tracing-actix-web-0.7.20/src/root_span_builder.rs
+test newsletter::newsletter_are_delivered_to_confirmed_subscribers ... ok
+[2026-02-17T09:13:08.714Z]  INFO: test/235051 on JM-PW0C2660: [CONFIRM A PENDING SUBSCRIBER - END] (file=src/routes/subscriptions_confirm.rs,http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:44305,http.method=GET,http.route=/subscriptions/confirm,http.scheme=http,http.user_agent="",line=64,otel.kind=server,otel.name="GET /subscriptions/confirm",request_id=4e6031a4-5f89-4711-a74c-f9d6ea7f5fbc,target=wizard_blog_backend::routes::subscriptions_confirm)
+    http.target: /subscriptions/confirm?subscription_token=YO7Jommix7qAsOpJGL1wGLShR0kEVt2nLfedBxbT5dCc1nFwBW
+[2026-02-17T09:13:08.714Z]  INFO: test/235051 on JM-PW0C2660: [HTTP REQUEST - END] (http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:44305,http.method=GET,http.route=/subscriptions/confirm,http.scheme=http,http.status_code=200,http.user_agent="",line=41,otel.kind=server,otel.name="GET /subscriptions/confirm",otel.status_code=OK,request_id=4e6031a4-5f89-4711-a74c-f9d6ea7f5fbc,target=tracing_actix_web::root_span_builder)
+    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tracing-actix-web-0.7.20/src/root_span_builder.rs
+    --
+    http.target: /subscriptions/confirm?subscription_token=YO7Jommix7qAsOpJGL1wGLShR0kEVt2nLfedBxbT5dCc1nFwBW
+test subscriptions_confirm::clicking_on_the_confirmation_link_confirms_a_subscriber ... ok
+[2026-02-17T09:13:08.729Z]  WARN: test/235051 on JM-PW0C2660: there is already a transaction in progress (line=185,target=sqlx::postgres::notice)
+    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sqlx-postgres-0.8.6/src/connection/stream.rs
+[2026-02-17T09:13:08.730Z]  WARN: test/235051 on JM-PW0C2660: there is no transaction in progress (line=185,target=sqlx::postgres::notice)
+    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sqlx-postgres-0.8.6/src/connection/stream.rs
+[2026-02-17T09:13:08.741Z]  INFO: test/235051 on JM-PW0C2660: starting 12 workers (line=310,target=actix_server::builder)
+    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/actix-server-2.6.0/src/builder.rs
+[2026-02-17T09:13:08.749Z]  INFO: test/235051 on JM-PW0C2660: Tokio runtime found; starting in existing Tokio runtime (line=192,target=actix_server::server)
+    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/actix-server-2.6.0/src/server.rs
+[2026-02-17T09:13:08.749Z]  INFO: test/235051 on JM-PW0C2660: starting service: "actix-web-service-127.0.0.1:39825", workers: 12, listening on: 127.0.0.1:39825 (line=197,target=actix_server::server)
+    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/actix-server-2.6.0/src/server.rs
+[2026-02-17T09:13:08.754Z]  INFO: test/235051 on JM-PW0C2660: [HTTP REQUEST - START] (line=41,target=tracing_actix_web::root_span_builder)
+    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tracing-actix-web-0.7.20/src/root_span_builder.rs
+[2026-02-17T09:13:08.754Z]  INFO: test/235051 on JM-PW0C2660: [ADDING A NEW SUBSCRIBER - START] (file=src/routes/subscriptions.rs,line=57,target=wizard_blog_backend::routes::subscriptions)
+[2026-02-17T09:13:08.757Z]  INFO: test/235051 on JM-PW0C2660: [SAVING NEW SUBSCRIBER DETAILS IN THE DATABASE - START] (file=src/routes/subscriptions.rs,line=94,target=wizard_blog_backend::routes::subscriptions)
+[2026-02-17T09:13:08.758Z]  INFO: test/235051 on JM-PW0C2660: [SAVING NEW SUBSCRIBER DETAILS IN THE DATABASE - END] (file=src/routes/subscriptions.rs,http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:39825,http.method=POST,http.route=/subscriptions,http.scheme=http,http.target=/subscriptions,http.user_agent="",line=94,otel.kind=server,otel.name="POST /subscriptions",request_id=adabe4bf-b63c-4247-af01-5d947040cf2b,subscriber_email=harshvse@gmail.com,subscriber_name="Harsh Verma",target=wizard_blog_backend::routes::subscriptions)
+[2026-02-17T09:13:08.758Z]  INFO: test/235051 on JM-PW0C2660: [STORE CONFIRMATION TOKEN IN DATABASE - START] (file=src/routes/subscriptions.rs,line=157,target=wizard_blog_backend::routes::subscriptions)
+[2026-02-17T09:13:08.758Z]  INFO: test/235051 on JM-PW0C2660: [STORE CONFIRMATION TOKEN IN DATABASE - END] (file=src/routes/subscriptions.rs,http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:39825,http.method=POST,http.route=/subscriptions,http.scheme=http,http.target=/subscriptions,http.user_agent="",line=157,otel.kind=server,otel.name="POST /subscriptions",request_id=adabe4bf-b63c-4247-af01-5d947040cf2b,subscriber_email=harshvse@gmail.com,subscriber_name="Harsh Verma",target=wizard_blog_backend::routes::subscriptions)
+[2026-02-17T09:13:08.759Z]  INFO: test/235051 on JM-PW0C2660: [SEND CONFIRMATION EMAIL AFTER SAVING THE USER IN DATABASE - START] (file=src/routes/subscriptions.rs,line=120,target=wizard_blog_backend::routes::subscriptions)
+[2026-02-17T09:13:08.760Z]  INFO: test/235051 on JM-PW0C2660: [SEND CONFIRMATION EMAIL AFTER SAVING THE USER IN DATABASE - END] (file=src/routes/subscriptions.rs,http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:39825,http.method=POST,http.route=/subscriptions,http.scheme=http,http.target=/subscriptions,http.user_agent="",line=120,otel.kind=server,otel.name="POST /subscriptions",request_id=adabe4bf-b63c-4247-af01-5d947040cf2b,subscriber_email=harshvse@gmail.com,subscriber_name="Harsh Verma",target=wizard_blog_backend::routes::subscriptions)
+[2026-02-17T09:13:08.760Z]  INFO: test/235051 on JM-PW0C2660: [ADDING A NEW SUBSCRIBER - END] (file=src/routes/subscriptions.rs,http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:39825,http.method=POST,http.route=/subscriptions,http.scheme=http,http.target=/subscriptions,http.user_agent="",line=57,otel.kind=server,otel.name="POST /subscriptions",request_id=adabe4bf-b63c-4247-af01-5d947040cf2b,subscriber_email=harshvse@gmail.com,subscriber_name="Harsh Verma",target=wizard_blog_backend::routes::subscriptions)
+[2026-02-17T09:13:08.760Z]  INFO: test/235051 on JM-PW0C2660: [HTTP REQUEST - END] (http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:39825,http.method=POST,http.route=/subscriptions,http.scheme=http,http.status_code=200,http.target=/subscriptions,http.user_agent="",line=41,otel.kind=server,otel.name="POST /subscriptions",otel.status_code=OK,request_id=adabe4bf-b63c-4247-af01-5d947040cf2b,target=tracing_actix_web::root_span_builder)
+    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tracing-actix-web-0.7.20/src/root_span_builder.rs
+[2026-02-17T09:13:08.769Z]  INFO: test/235051 on JM-PW0C2660: [HTTP REQUEST - START] (line=41,target=tracing_actix_web::root_span_builder)
+    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tracing-actix-web-0.7.20/src/root_span_builder.rs
+[2026-02-17T09:13:08.769Z]  INFO: test/235051 on JM-PW0C2660: [CONFIRM A PENDING SUBSCRIBER - START] (file=src/routes/subscriptions_confirm.rs,line=64,target=wizard_blog_backend::routes::subscriptions_confirm)
+[2026-02-17T09:13:08.770Z]  INFO: test/235051 on JM-PW0C2660: [FETCH SUBSCRIBER_ID FOR GIVEN TOKEN - START] (file=src/routes/subscriptions_confirm.rs,line=94,target=wizard_blog_backend::routes::subscriptions_confirm)
+[2026-02-17T09:13:08.770Z]  INFO: test/235051 on JM-PW0C2660: [FETCH SUBSCRIBER_ID FOR GIVEN TOKEN - END] (file=src/routes/subscriptions_confirm.rs,http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:39825,http.method=GET,http.route=/subscriptions/confirm,http.scheme=http,http.user_agent="",line=94,otel.kind=server,otel.name="GET /subscriptions/confirm",request_id=dbec2877-3a10-4edb-a77f-1a386644891c,target=wizard_blog_backend::routes::subscriptions_confirm)
+    http.target: /subscriptions/confirm?subscription_token=V8ov2nPfiQ7o7JOCb7l4r08DYTfLwHVz7qONRsVGeplPuLTtMj
+[2026-02-17T09:13:08.770Z]  INFO: test/235051 on JM-PW0C2660: [SET STATUS OF SUBSCRIBER TO CONFIRMED - START] (file=src/routes/subscriptions_confirm.rs,line=117,target=wizard_blog_backend::routes::subscriptions_confirm)
+[2026-02-17T09:13:08.771Z]  INFO: test/235051 on JM-PW0C2660: [SET STATUS OF SUBSCRIBER TO CONFIRMED - END] (file=src/routes/subscriptions_confirm.rs,http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:39825,http.method=GET,http.route=/subscriptions/confirm,http.scheme=http,http.user_agent="",line=117,otel.kind=server,otel.name="GET /subscriptions/confirm",request_id=dbec2877-3a10-4edb-a77f-1a386644891c,target=wizard_blog_backend::routes::subscriptions_confirm)
+    http.target: /subscriptions/confirm?subscription_token=V8ov2nPfiQ7o7JOCb7l4r08DYTfLwHVz7qONRsVGeplPuLTtMj
+[2026-02-17T09:13:08.772Z]  INFO: test/235051 on JM-PW0C2660: [CONFIRM A PENDING SUBSCRIBER - END] (file=src/routes/subscriptions_confirm.rs,http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:39825,http.method=GET,http.route=/subscriptions/confirm,http.scheme=http,http.user_agent="",line=64,otel.kind=server,otel.name="GET /subscriptions/confirm",request_id=dbec2877-3a10-4edb-a77f-1a386644891c,target=wizard_blog_backend::routes::subscriptions_confirm)
+    http.target: /subscriptions/confirm?subscription_token=V8ov2nPfiQ7o7JOCb7l4r08DYTfLwHVz7qONRsVGeplPuLTtMj
+[2026-02-17T09:13:08.772Z]  INFO: test/235051 on JM-PW0C2660: [HTTP REQUEST - END] (http.client_ip=127.0.0.1,http.flavor=1.1,http.host=127.0.0.1:39825,http.method=GET,http.route=/subscriptions/confirm,http.scheme=http,http.status_code=200,http.user_agent="",line=41,otel.kind=server,otel.name="GET /subscriptions/confirm",otel.status_code=OK,request_id=dbec2877-3a10-4edb-a77f-1a386644891c,target=tracing_actix_web::root_span_builder)
+    file: /home/harshvse/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tracing-actix-web-0.7.20/src/root_span_builder.rs
+    --
+    http.target: /subscriptions/confirm?subscription_token=V8ov2nPfiQ7o7JOCb7l4r08DYTfLwHVz7qONRsVGeplPuLTtMj
+test subscriptions_confirm::the_link_returned_by_subscribe_returns_a_200_if_called ... ok
 
-failures:
-
----- subscriptions_confirm::the_link_returned_by_subscribe_returns_a_200_if_called stdout ----
-starting server on port: 41443
-
-thread 'subscriptions_confirm::the_link_returned_by_subscribe_returns_a_200_if_called' (289308) panicked at tests/api/subscriptions_confirm.rs:38:5:
-assertion `left == right` failed
-  left: 401
- right: 200
-note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
-
----- subscriptions_confirm::clicking_on_the_confirmation_link_confirms_a_subscriber stdout ----
-starting server on port: 33909
-
-thread 'subscriptions_confirm::clicking_on_the_confirmation_link_confirms_a_subscriber' (289306) panicked at tests/api/subscriptions_confirm.rs:61:10:
-called `Result::unwrap()` on an `Err` value: reqwest::Error { kind: Status(401, None), url: "http://127.0.0.1:33909/subscriptions/confirm?subscription_token=4b589b81-273d-40ad-9aa2-158da38a7f44" }
+test result: ok. 13 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.35s
 
 
-failures:
-    subscriptions_confirm::clicking_on_the_confirmation_link_confirms_a_subscriber
-    subscriptions_confirm::the_link_returned_by_subscribe_returns_a_200_if_called
+running 0 tests
 
-test result: FAILED. 7 passed; 2 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.53s
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
 
