@@ -1,19 +1,15 @@
-use actix_web::{
-    HttpRequest, HttpResponse,
-    cookie::{Cookie, time::Duration},
-    http::header::ContentType,
-};
+use actix_web::{HttpResponse, http::header::ContentType};
+use actix_web_flash_messages::{IncomingFlashMessages, Level};
+use std::fmt::Write;
 
-pub async fn login_form(request: HttpRequest) -> HttpResponse {
-    let error_message = match request.cookie("_flash") {
-        Some(cookie) => {
-            format!("<p><i>{}</i></p>", cookie.value())
-        }
-        None => "".into(),
-    };
+pub async fn login_form(flash_messages: IncomingFlashMessages) -> HttpResponse {
+    let mut error_string = String::new();
+    for m in flash_messages.iter().filter(|m| m.level() == Level::Error) {
+        writeln!(error_string, "<p><i>{}</i></p>", m.content()).unwrap()
+    }
+
     HttpResponse::Ok()
         .content_type(ContentType::html())
-        .cookie(Cookie::build("_flash", "").max_age(Duration::ZERO).finish())
         .body(format!(
             r#"<!DOCTYPE html>
     <html lang="en">
@@ -22,7 +18,7 @@ pub async fn login_form(request: HttpRequest) -> HttpResponse {
     <title>Login</title>
     </head>
     <body>
-    {error_message}
+    {error_string}
     <form action="/login" method="post">
     <label>Username
     <input
