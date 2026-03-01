@@ -14,6 +14,7 @@ pub struct Settings {
     pub base_url: String,
     pub email_client: EmailClientSettings,
     pub hmac_secret: Secret<String>,
+    pub redis_uri: Secret<String>
 }
 
 #[derive(serde::Deserialize, Clone)]

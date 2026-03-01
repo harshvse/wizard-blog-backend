@@ -8,7 +8,7 @@ use uuid::Uuid;
 use crate::{
     domain::{NewSubscriber, SubscriberEmail, SubscriberName},
     email_client::EmailClient,
-    routes::helper::error_chain_fmt,
+    routes::utils::error_chain_fmt,
     startup::ApplicationBaseUrl,
 };
 

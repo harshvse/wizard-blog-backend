@@ -5,7 +5,7 @@ use wizard_blog_backend::{
 };
 
 #[tokio::main]
-async fn main() -> Result<(), std::io::Error> {
+async fn main() -> anyhow::Result<()> {
     // Set logging output to a file
     // let ts = Local::now().format("%Y-%m-%d_%H-%M-%S");
     // let log_file = format!("log_{}.txt", ts);
