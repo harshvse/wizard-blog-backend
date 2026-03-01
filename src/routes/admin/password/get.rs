@@ -4,8 +4,8 @@ use actix_web_flash_messages::{IncomingFlashMessages, Level};
 use std::fmt::Write;
 
 use crate::{
-    routes::utils::{e500, see_other},
     session_state::TypedSession,
+    utils::{e500, see_other},
 };
 pub async fn change_password_form(
     session: TypedSession,

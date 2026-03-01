@@ -8,8 +8,8 @@ use uuid::Uuid;
 use crate::{
     domain::{NewSubscriber, SubscriberEmail, SubscriberName},
     email_client::EmailClient,
-    routes::utils::error_chain_fmt,
     startup::ApplicationBaseUrl,
+    utils::error_chain_fmt,
 };
 
 #[derive(serde::Deserialize)]

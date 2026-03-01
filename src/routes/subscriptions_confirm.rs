@@ -1,4 +1,4 @@
-use crate::routes::utils::error_chain_fmt;
+use crate::utils::error_chain_fmt;
 use actix_web::{HttpResponse, ResponseError, http::StatusCode, web};
 use anyhow::Context;
 use serde::Deserialize;

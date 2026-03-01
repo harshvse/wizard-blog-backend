@@ -1,15 +1,11 @@
-use actix_web::{
-    HttpResponse,
-    http::header::{ContentType, LOCATION},
-    web,
-};
+use actix_web::{HttpResponse, http::header::ContentType, web};
 use anyhow::Context;
 use sqlx::PgPool;
 use uuid::Uuid;
 
 use crate::{
-    routes::utils::{e500, see_other},
     session_state::TypedSession,
+    utils::{e500, see_other},
 };
 
 #[tracing::instrument(skip(pool, session))]
@@ -36,6 +32,11 @@ pub async fn admin_dashboard(
         <p>Available actions:</p>
         <ol>
         <li><a href="/admin/password">Change password</a></li>
+        <li>
+        <form name="logoutForm" action="/admin/logout" method="post">
+        <input type="submit" value="Logout">
+        </form>
+        </li>
         </ol>
         </body>
         </html>"#

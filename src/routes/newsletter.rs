@@ -15,7 +15,7 @@ use crate::{
     authentication::{AuthError, Credentials, validate_credentials},
     domain::SubscriberEmail,
     email_client::EmailClient,
-    routes::utils::error_chain_fmt,
+    utils::error_chain_fmt,
 };
 
 #[derive(serde::Deserialize)]
