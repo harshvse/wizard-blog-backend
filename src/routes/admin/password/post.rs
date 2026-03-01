@@ -1,13 +1,11 @@
-use actix_web::{HttpResponse, error::InternalError, web};
+use actix_web::{HttpResponse, web};
 use actix_web_flash_messages::FlashMessage;
 use secrecy::{ExposeSecret, Secret};
 use sqlx::PgPool;
-use uuid::Uuid;
 
 use crate::{
     authentication::{AuthError, Credentials, UserId, validate_credentials},
     routes::admin::dashboard::get_username,
-    session_state::TypedSession,
     utils::{e500, see_other},
 };
 
@@ -19,7 +17,6 @@ pub struct FormData {
 }
 
 pub async fn change_password(
-    session: TypedSession,
     form: web::Form<FormData>,
     pool: web::Data<PgPool>,
     user_id: web::ReqData<UserId>,
