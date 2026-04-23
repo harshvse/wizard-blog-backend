@@ -1,15 +1,12 @@
-use actix_web::HttpResponse;
-use actix_web::http::header::ContentType;
-use actix_web_flash_messages::{IncomingFlashMessages, Level};
-use std::fmt::Write;
-
 use crate::{
     session_state::TypedSession,
     utils::{e500, see_other},
 };
+use actix_web::{HttpResponse, http::header::ContentType};
+use actix_web_flash_messages::{IncomingFlashMessages, Level};
+use std::fmt::Write;
 
-#[tracing::instrument(name = "Get password form", skip(session, flash_messages))]
-pub async fn change_password_form(
+pub async fn newsletter_publish_form(
     session: TypedSession,
     flash_messages: IncomingFlashMessages,
 ) -> Result<HttpResponse, actix_web::Error> {
@@ -28,36 +25,35 @@ pub async fn change_password_form(
 <html lang="en">
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
-<title>Change Password</title>
+<title>Publish Newsletter</title>
 </head>
 <body>
 {error_string}
-<form action="/admin/password" method="post">
-<label>Current password
+<form action="/admin/newsletters" method="post">
+<label>Newsletter title
 <input
-type="password"
-placeholder="Enter current password"
-name="current_password"
+type="text"
+placeholder="Enter the title for the newsletter"
+name="title"
 >
 </label>
 <br>
-<label>New password
-<input
-type="password"
-placeholder="Enter new password"
-name="new_password"
+<label>Html Content
+<textarea
+type="text-area"
+placeholder="Enter the newsletter content in html"
+name="html_content"
 >
-</label>
-<br>
-<label>Confirm new password
-<input
-type="password"
-placeholder="Type the new password again"
-name="new_password_check"
+</textarea>
+<label>Text Content
+<textarea
+type="text-area"
+placeholder="Enter the newsletter content in text"
+name="text_content"
 >
-</label>
+</textarea>
 <br>
-<button type="submit">Change password</button>
+<button type="submit">Publish Newsletter</button>
 </form>
 <p><a href="/admin/dashboard">&lt;- Back</a></p>
 </body>
